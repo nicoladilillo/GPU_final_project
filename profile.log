@@ -1,0 +1,7 @@
+==9306== NVPROF is profiling process 9306, command: ./stream_legacy write_bmp_header_dfg__7.txt RTL_resoruces.txt 400
+==9306== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==9306== Profiling application: ./stream_legacy write_bmp_header_dfg__7.txt RTL_resoruces.txt 400
+==9306== Warning: 229 records have invalid timestamps due to insufficient device buffer space. You can configure the buffer space using the option --device-buffer-size.
+==9306== Warning: 221 records have invalid timestamps due to insufficient semaphore pool size. You can configure the pool size using the option --profiling-semaphore-pool-size.
+==9306== Profiling result:
+No kernels were profiled.

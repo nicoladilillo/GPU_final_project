@@ -1,0 +1,1755 @@
+START reading operations
+START reading nodes
+0 A1 ADD
+1 A2 ADD
+2 A3 MUL
+3 A4 ADD
+4 A5 DIV
+START reading edge
+Node A1(ADD) va in nodo A3(MUL)
+Node A2(ADD) va in nodo A3(MUL)
+Node A1(ADD) va in nodo A4(ADD)
+Node A2(ADD) va in nodo A4(ADD)
+Node A3(MUL) va in nodo A5(DIV)
+Node A4(ADD) va in nodo A5(DIV)
+
+NODE
+
+0) Node: A1(0) - Operation: ADD - Next node:   A3 A4 
+1) Node: A2(1) - Operation: ADD - Next node:   A3 A4 
+2) Node: A3(2) - Operation: MUL - Dependecies: A1 A2  - Next node:   A5 
+3) Node: A4(3) - Operation: ADD - Dependecies: A1 A2  - Next node:   A5 
+4) Node: A5(4) - Operation: DIV - Dependecies: A3 A4 
+
+RESOURCES
+
+For ADD (USED 1) the node are: A1 A2 A4 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For AND (USED 0) the node are: 
+	ID Area Speed
+0)	 3    5    1
+For MUL (USED 1) the node are: A3 
+	ID Area Speed
+0)	 4  100    2
+1)	 5   70    5
+2)	 6   40   10
+For ASR (USED 0) the node are: 
+	ID Area Speed
+0)	 7    5    1
+For LSR (USED 0) the node are: 
+	ID Area Speed
+0)	 8    5    1
+For LSL (USED 0) the node are: 
+	ID Area Speed
+0)	 9    5    1
+For LOD (USED 0) the node are: 
+	ID Area Speed
+0)	10   40    1
+1)	11   20    2
+2)	12   10    5
+For STR (USED 0) the node are: 
+	ID Area Speed
+0)	13   40    1
+1)	14   20    2
+2)	15   10    5
+For SUB (USED 0) the node are: 
+	ID Area Speed
+0)	16   40    1
+1)	17   20    2
+2)	18   10    5
+For BNE (USED 0) the node are: 
+	ID Area Speed
+0)	19    6    1
+For BGE (USED 0) the node are: 
+	ID Area Speed
+0)	20    6    1
+For NEG (USED 0) the node are: 
+	ID Area Speed
+0)	21   25    1
+For DIV (USED 1) the node are: A5 
+	ID Area Speed
+0)	22  300    6
+1)	23  200   10
+2)	24  150   22
+For REG (USED 0) the node are: 
+	ID Area Speed
+0)	25   21    1
+For MUX21 (USED 0) the node are: 
+	ID Area Speed
+0)	26    3    1
+
+
+NODE to GPU
+
+0) Node: A1(0) - Operation: ADD(0) - Next node:   A3 A4 
+1) Node: A2(1) - Operation: ADD(0) - Next node:   A3 A4 
+2) Node: A3(2) - Operation: MUL(1) - Dependecies: A1 A2  - Next node:   A5 
+3) Node: A4(3) - Operation: ADD(0) - Dependecies: A1 A2  - Next node:   A5 
+4) Node: A5(4) - Operation: DIV(2) - Dependecies: A3 A4 
+
+RESOURCES to GPU
+
+For ADD(0) the node are: A1 A2 A4 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For MUL(1) the node are: A3 
+	ID Area Speed
+0)	 3  100    2
+1)	 4   70    5
+2)	 5   40   10
+For DIV(2) the node are: A5 
+	ID Area Speed
+0)	 6  300    6
+1)	 7  200   10
+2)	 8  150   22
+
+Number of possible resource is 9
+k min is 3 and k max is 9
+
+Number of total combination witk k equal to 3 are: 84
+	Shared memory Total is 28208 -- Piece of shared memory is 332 -- Offset is 320
+	0) 2  1  0   -- Memory is 652, from 320 to 652 
+	1) 3  1  0   -- Memory is 984, from 652 to 984 
+	2) 3  2  0   -- Memory is 1316, from 984 to 1316 
+	3) 3  2  1   -- Memory is 1648, from 1316 to 1648 
+	4) 4  1  0   -- Memory is 1980, from 1648 to 1980 
+	5) 4  2  0   -- Memory is 2312, from 1980 to 2312 
+	6) 4  2  1   -- Memory is 2644, from 2312 to 2644 
+	7) 4  3  0   -- Memory is 2976, from 2644 to 2976 
+	8) 4  3  1   -- Memory is 3308, from 2976 to 3308 
+	9) 4  3  2   -- Memory is 3640, from 3308 to 3640 
+	10) 5  1  0   -- Memory is 3972, from 3640 to 3972 
+	11) 5  2  0   -- Memory is 4304, from 3972 to 4304 
+	12) 5  2  1   -- Memory is 4636, from 4304 to 4636 
+	13) 5  3  0   -- Memory is 4968, from 4636 to 4968 
+	14) 5  3  1   -- Memory is 5300, from 4968 to 5300 
+	15) 5  3  2   -- Memory is 5632, from 5300 to 5632 
+	16) 5  4  0   -- Memory is 5964, from 5632 to 5964 
+	17) 5  4  1   -- Memory is 6296, from 5964 to 6296 
+	18) 5  4  2   -- Memory is 6628, from 6296 to 6628 
+	19) 5  4  3   -- Memory is 6960, from 6628 to 6960 
+	20) 6  1  0   -- Memory is 7292, from 6960 to 7292 
+	21) 6  2  0   -- Memory is 7624, from 7292 to 7624 
+	22) 6  2  1   -- Memory is 7956, from 7624 to 7956 
+	23) 6  3  0   -- Memory is 8288, from 7956 to 8288 
+	24) 6  3  1   -- Memory is 8620, from 8288 to 8620 
+	25) 6  3  2   -- Memory is 8952, from 8620 to 8952 
+	26) 6  4  0   -- Memory is 9284, from 8952 to 9284 
+	27) 6  4  1   -- Memory is 9616, from 9284 to 9616 
+	28) 6  4  2   -- Memory is 9948, from 9616 to 9948 
+	29) 6  4  3   -- Memory is 10280, from 9948 to 10280 
+	30) 6  5  0   -- Memory is 10612, from 10280 to 10612 
+	31) 6  5  1   -- Memory is 10944, from 10612 to 10944 
+	32) 6  5  2   -- Memory is 11276, from 10944 to 11276 
+	33) 6  5  3   -- Memory is 11608, from 11276 to 11608 
+	34) 6  5  4   -- Memory is 11940, from 11608 to 11940 
+	35) 7  1  0   -- Memory is 12272, from 11940 to 12272 
+	36) 7  2  0   -- Memory is 12604, from 12272 to 12604 
+	37) 7  2  1   -- Memory is 12936, from 12604 to 12936 
+	38) 7  3  0   -- Memory is 13268, from 12936 to 13268 
+	39) 7  3  1   -- Memory is 13600, from 13268 to 13600 
+	40) 7  3  2   -- Memory is 13932, from 13600 to 13932 
+	41) 7  4  0   -- Memory is 14264, from 13932 to 14264 
+	42) 7  4  1   -- Memory is 14596, from 14264 to 14596 
+	43) 7  4  2   -- Memory is 14928, from 14596 to 14928 
+	44) 7  4  3   -- Memory is 15260, from 14928 to 15260 
+	45) 7  5  0   -- Memory is 15592, from 15260 to 15592 
+	46) 7  5  1   -- Memory is 15924, from 15592 to 15924 
+	47) 7  5  2   -- Memory is 16256, from 15924 to 16256 
+	48) 7  5  3   -- Memory is 16588, from 16256 to 16588 
+	49) 7  5  4   -- Memory is 16920, from 16588 to 16920 
+	50) 7  6  0   -- Memory is 17252, from 16920 to 17252 
+	51) 7  6  1   -- Memory is 17584, from 17252 to 17584 
+	52) 7  6  2   -- Memory is 17916, from 17584 to 17916 
+	53) 7  6  3   -- Memory is 18248, from 17916 to 18248 
+	54) 7  6  4   -- Memory is 18580, from 18248 to 18580 
+	55) 7  6  5   -- Memory is 18912, from 18580 to 18912 
+	56) 8  1  0   -- Memory is 19244, from 18912 to 19244 
+	57) 8  2  0   -- Memory is 19576, from 19244 to 19576 
+	58) 8  2  1   -- Memory is 19908, from 19576 to 19908 
+	59) 8  3  0   -- Memory is 20240, from 19908 to 20240 
+	60) 8  3  1   -- Memory is 20572, from 20240 to 20572 
+	61) 8  3  2   -- Memory is 20904, from 20572 to 20904 
+	62) 8  4  0   -- Memory is 21236, from 20904 to 21236 
+	63) 8  4  1   -- Memory is 21568, from 21236 to 21568 
+	64) 8  4  2   -- Memory is 21900, from 21568 to 21900 
+	65) 8  4  3   -- Memory is 22232, from 21900 to 22232 
+	66) 8  5  0   -- Memory is 22564, from 22232 to 22564 
+	67) 8  5  1   -- Memory is 22896, from 22564 to 22896 
+	68) 8  5  2   -- Memory is 23228, from 22896 to 23228 
+	69) 8  5  3   -- Memory is 23560, from 23228 to 23560 
+	70) 8  5  4   -- Memory is 23892, from 23560 to 23892 
+	71) 8  6  0   -- Memory is 24224, from 23892 to 24224 
+	72) 8  6  1   -- Memory is 24556, from 24224 to 24556 
+	73) 8  6  2   -- Memory is 24888, from 24556 to 24888 
+	74) 8  6  3   -- Memory is 25220, from 24888 to 25220 
+	75) 8  6  4   -- Memory is 25552, from 25220 to 25552 
+	76) 8  6  5   -- Memory is 25884, from 25552 to 25884 
+	77) 8  7  0   -- Memory is 26216, from 25884 to 26216 
+	78) 8  7  1   -- Memory is 26548, from 26216 to 26548 
+	79) 8  7  2   -- Memory is 26880, from 26548 to 26880 
+	80) 8  7  3   -- Memory is 27212, from 26880 to 27212 
+	81) 8  7  4   -- Memory is 27544, from 27212 to 27544 
+	82) 8  7  5   -- Memory is 27876, from 27544 to 27876 
+	83) 8  7  6   -- Memory is 28208, from 27876 to 28208 
+idx: 0 --> No combination for 2  1  0  
+idx: 1 --> No combination for 3  1  0  
+idx: 2 --> No combination for 3  2  0  
+idx: 3 --> No combination for 3  2  1  
+idx: 4 --> No combination for 4  1  0  
+idx: 5 --> No combination for 4  2  0  
+idx: 6 --> No combination for 4  2  1  
+idx: 7 --> No combination for 4  3  0  
+idx: 8 --> No combination for 4  3  1  
+idx: 9 --> No combination for 4  3  2  
+idx: 10 --> No combination for 5  1  0  
+idx: 11 --> No combination for 5  2  0  
+idx: 12 --> No combination for 5  2  1  
+idx: 13 --> No combination for 5  3  0  
+idx: 14 --> No combination for 5  3  1  
+idx: 15 --> No combination for 5  3  2  
+idx: 16 --> No combination for 5  4  0  
+idx: 17 --> No combination for 5  4  1  
+idx: 18 --> No combination for 5  4  2  
+idx: 19 --> No combination for 5  4  3  
+idx: 20 --> No combination for 6  1  0  
+idx: 21 --> No combination for 6  2  0  
+idx: 22 --> No combination for 6  2  1  
+idx: 23 - Best time: 10 - area: 440
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 24 - Best time: 10 - area: 440
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 25 - Best time: 16 - area: 420
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 26 - Best time: 12 - area: 450
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 27 - Best time: 13 - area: 410
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 28 - Best time: 16 - area: 390
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 29 --> No combination for 6  4  3  
+idx: 30 - Best time: 17 - area: 420
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 31 - Best time: 18 - area: 380
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 32 - Best time: 21 - area: 360
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 33 --> No combination for 6  5  3  
+idx: 34 --> No combination for 6  5  4  
+idx: 35 --> No combination for 7  1  0  
+idx: 36 --> No combination for 7  2  0  
+idx: 37 --> No combination for 7  2  1  
+idx: 38 - Best time: 13 - area: 380
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 39 - Best time: 14 - area: 340
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 40 - Best time: 20 - area: 320
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 41 - Best time: 16 - area: 350
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 42 - Best time: 17 - area: 310
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 43 - Best time: 20 - area: 290
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 44 --> No combination for 7  4  3  
+idx: 45 - Best time: 21 - area: 320
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 46 - Best time: 22 - area: 280
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 47 - Best time: 25 - area: 260
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 48 --> No combination for 7  5  3  
+idx: 49 --> No combination for 7  5  4  
+idx: 50 --> No combination for 7  6  0  
+idx: 51 --> No combination for 7  6  1  
+idx: 52 --> No combination for 7  6  2  
+idx: 53 --> No combination for 7  6  3  
+idx: 54 --> No combination for 7  6  4  
+idx: 55 --> No combination for 7  6  5  
+idx: 56 --> No combination for 8  1  0  
+idx: 57 --> No combination for 8  2  0  
+idx: 58 --> No combination for 8  2  1  
+idx: 59 - Best time: 25 - area: 330
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 60 - Best time: 26 - area: 290
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 61 - Best time: 32 - area: 270
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 62 - Best time: 28 - area: 300
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 63 - Best time: 29 - area: 260
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 64 - Best time: 32 - area: 240
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 65 --> No combination for 8  4  3  
+idx: 66 - Best time: 33 - area: 270
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 67 - Best time: 34 - area: 230
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 68 - Best time: 37 - area: 210
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 69 --> No combination for 8  5  3  
+idx: 70 --> No combination for 8  5  4  
+idx: 71 --> No combination for 8  6  0  
+idx: 72 --> No combination for 8  6  1  
+idx: 73 --> No combination for 8  6  2  
+idx: 74 --> No combination for 8  6  3  
+idx: 75 --> No combination for 8  6  4  
+idx: 76 --> No combination for 8  6  5  
+idx: 77 --> No combination for 8  7  0  
+idx: 78 --> No combination for 8  7  1  
+idx: 79 --> No combination for 8  7  2  
+idx: 80 --> No combination for 8  7  3  
+idx: 81 --> No combination for 8  7  4  
+idx: 82 --> No combination for 8  7  5  
+idx: 83 --> No combination for 8  7  6  
+Best Combination:   6  1,  3  1,  0  1, - Time: 10 - Area: 440
+
+Number of total combination witk k equal to 4 are: 126
+	Shared memory Total is 44672 -- Piece of shared memory is 352 -- Offset is 320
+	0) 3  2  1  0   -- Memory is 672, from 320 to 672 
+	1) 4  2  1  0   -- Memory is 1024, from 672 to 1024 
+	2) 4  3  1  0   -- Memory is 1376, from 1024 to 1376 
+	3) 4  3  2  0   -- Memory is 1728, from 1376 to 1728 
+	4) 4  3  2  1   -- Memory is 2080, from 1728 to 2080 
+	5) 5  2  1  0   -- Memory is 2432, from 2080 to 2432 
+	6) 5  3  1  0   -- Memory is 2784, from 2432 to 2784 
+	7) 5  3  2  0   -- Memory is 3136, from 2784 to 3136 
+	8) 5  3  2  1   -- Memory is 3488, from 3136 to 3488 
+	9) 5  4  1  0   -- Memory is 3840, from 3488 to 3840 
+	10) 5  4  2  0   -- Memory is 4192, from 3840 to 4192 
+	11) 5  4  2  1   -- Memory is 4544, from 4192 to 4544 
+	12) 5  4  3  0   -- Memory is 4896, from 4544 to 4896 
+	13) 5  4  3  1   -- Memory is 5248, from 4896 to 5248 
+	14) 5  4  3  2   -- Memory is 5600, from 5248 to 5600 
+	15) 6  2  1  0   -- Memory is 5952, from 5600 to 5952 
+	16) 6  3  1  0   -- Memory is 6304, from 5952 to 6304 
+	17) 6  3  2  0   -- Memory is 6656, from 6304 to 6656 
+	18) 6  3  2  1   -- Memory is 7008, from 6656 to 7008 
+	19) 6  4  1  0   -- Memory is 7360, from 7008 to 7360 
+	20) 6  4  2  0   -- Memory is 7712, from 7360 to 7712 
+	21) 6  4  2  1   -- Memory is 8064, from 7712 to 8064 
+	22) 6  4  3  0   -- Memory is 8416, from 8064 to 8416 
+	23) 6  4  3  1   -- Memory is 8768, from 8416 to 8768 
+	24) 6  4  3  2   -- Memory is 9120, from 8768 to 9120 
+	25) 6  5  1  0   -- Memory is 9472, from 9120 to 9472 
+	26) 6  5  2  0   -- Memory is 9824, from 9472 to 9824 
+	27) 6  5  2  1   -- Memory is 10176, from 9824 to 10176 
+	28) 6  5  3  0   -- Memory is 10528, from 10176 to 10528 
+	29) 6  5  3  1   -- Memory is 10880, from 10528 to 10880 
+	30) 6  5  3  2   -- Memory is 11232, from 10880 to 11232 
+	31) 6  5  4  0   -- Memory is 11584, from 11232 to 11584 
+	32) 6  5  4  1   -- Memory is 11936, from 11584 to 11936 
+	33) 6  5  4  2   -- Memory is 12288, from 11936 to 12288 
+	34) 6  5  4  3   -- Memory is 12640, from 12288 to 12640 
+	35) 7  2  1  0   -- Memory is 12992, from 12640 to 12992 
+	36) 7  3  1  0   -- Memory is 13344, from 12992 to 13344 
+	37) 7  3  2  0   -- Memory is 13696, from 13344 to 13696 
+	38) 7  3  2  1   -- Memory is 14048, from 13696 to 14048 
+	39) 7  4  1  0   -- Memory is 14400, from 14048 to 14400 
+	40) 7  4  2  0   -- Memory is 14752, from 14400 to 14752 
+	41) 7  4  2  1   -- Memory is 15104, from 14752 to 15104 
+	42) 7  4  3  0   -- Memory is 15456, from 15104 to 15456 
+	43) 7  4  3  1   -- Memory is 15808, from 15456 to 15808 
+	44) 7  4  3  2   -- Memory is 16160, from 15808 to 16160 
+	45) 7  5  1  0   -- Memory is 16512, from 16160 to 16512 
+	46) 7  5  2  0   -- Memory is 16864, from 16512 to 16864 
+	47) 7  5  2  1   -- Memory is 17216, from 16864 to 17216 
+	48) 7  5  3  0   -- Memory is 17568, from 17216 to 17568 
+	49) 7  5  3  1   -- Memory is 17920, from 17568 to 17920 
+	50) 7  5  3  2   -- Memory is 18272, from 17920 to 18272 
+	51) 7  5  4  0   -- Memory is 18624, from 18272 to 18624 
+	52) 7  5  4  1   -- Memory is 18976, from 18624 to 18976 
+	53) 7  5  4  2   -- Memory is 19328, from 18976 to 19328 
+	54) 7  5  4  3   -- Memory is 19680, from 19328 to 19680 
+	55) 7  6  1  0   -- Memory is 20032, from 19680 to 20032 
+	56) 7  6  2  0   -- Memory is 20384, from 20032 to 20384 
+	57) 7  6  2  1   -- Memory is 20736, from 20384 to 20736 
+	58) 7  6  3  0   -- Memory is 21088, from 20736 to 21088 
+	59) 7  6  3  1   -- Memory is 21440, from 21088 to 21440 
+	60) 7  6  3  2   -- Memory is 21792, from 21440 to 21792 
+	61) 7  6  4  0   -- Memory is 22144, from 21792 to 22144 
+	62) 7  6  4  1   -- Memory is 22496, from 22144 to 22496 
+	63) 7  6  4  2   -- Memory is 22848, from 22496 to 22848 
+	64) 7  6  4  3   -- Memory is 23200, from 22848 to 23200 
+	65) 7  6  5  0   -- Memory is 23552, from 23200 to 23552 
+	66) 7  6  5  1   -- Memory is 23904, from 23552 to 23904 
+	67) 7  6  5  2   -- Memory is 24256, from 23904 to 24256 
+	68) 7  6  5  3   -- Memory is 24608, from 24256 to 24608 
+	69) 7  6  5  4   -- Memory is 24960, from 24608 to 24960 
+	70) 8  2  1  0   -- Memory is 25312, from 24960 to 25312 
+	71) 8  3  1  0   -- Memory is 25664, from 25312 to 25664 
+	72) 8  3  2  0   -- Memory is 26016, from 25664 to 26016 
+	73) 8  3  2  1   -- Memory is 26368, from 26016 to 26368 
+	74) 8  4  1  0   -- Memory is 26720, from 26368 to 26720 
+	75) 8  4  2  0   -- Memory is 27072, from 26720 to 27072 
+	76) 8  4  2  1   -- Memory is 27424, from 27072 to 27424 
+	77) 8  4  3  0   -- Memory is 27776, from 27424 to 27776 
+	78) 8  4  3  1   -- Memory is 28128, from 27776 to 28128 
+	79) 8  4  3  2   -- Memory is 28480, from 28128 to 28480 
+	80) 8  5  1  0   -- Memory is 28832, from 28480 to 28832 
+	81) 8  5  2  0   -- Memory is 29184, from 28832 to 29184 
+	82) 8  5  2  1   -- Memory is 29536, from 29184 to 29536 
+	83) 8  5  3  0   -- Memory is 29888, from 29536 to 29888 
+	84) 8  5  3  1   -- Memory is 30240, from 29888 to 30240 
+	85) 8  5  3  2   -- Memory is 30592, from 30240 to 30592 
+	86) 8  5  4  0   -- Memory is 30944, from 30592 to 30944 
+	87) 8  5  4  1   -- Memory is 31296, from 30944 to 31296 
+	88) 8  5  4  2   -- Memory is 31648, from 31296 to 31648 
+	89) 8  5  4  3   -- Memory is 32000, from 31648 to 32000 
+	90) 8  6  1  0   -- Memory is 32352, from 32000 to 32352 
+	91) 8  6  2  0   -- Memory is 32704, from 32352 to 32704 
+	92) 8  6  2  1   -- Memory is 33056, from 32704 to 33056 
+	93) 8  6  3  0   -- Memory is 33408, from 33056 to 33408 
+	94) 8  6  3  1   -- Memory is 33760, from 33408 to 33760 
+	95) 8  6  3  2   -- Memory is 34112, from 33760 to 34112 
+	96) 8  6  4  0   -- Memory is 34464, from 34112 to 34464 
+	97) 8  6  4  1   -- Memory is 34816, from 34464 to 34816 
+	98) 8  6  4  2   -- Memory is 35168, from 34816 to 35168 
+	99) 8  6  4  3   -- Memory is 35520, from 35168 to 35520 
+	100) 8  6  5  0   -- Memory is 35872, from 35520 to 35872 
+	101) 8  6  5  1   -- Memory is 36224, from 35872 to 36224 
+	102) 8  6  5  2   -- Memory is 36576, from 36224 to 36576 
+	103) 8  6  5  3   -- Memory is 36928, from 36576 to 36928 
+	104) 8  6  5  4   -- Memory is 37280, from 36928 to 37280 
+	105) 8  7  1  0   -- Memory is 37632, from 37280 to 37632 
+	106) 8  7  2  0   -- Memory is 37984, from 37632 to 37984 
+	107) 8  7  2  1   -- Memory is 38336, from 37984 to 38336 
+	108) 8  7  3  0   -- Memory is 38688, from 38336 to 38688 
+	109) 8  7  3  1   -- Memory is 39040, from 38688 to 39040 
+	110) 8  7  3  2   -- Memory is 39392, from 39040 to 39392 
+	111) 8  7  4  0   -- Memory is 39744, from 39392 to 39744 
+	112) 8  7  4  1   -- Memory is 40096, from 39744 to 40096 
+	113) 8  7  4  2   -- Memory is 40448, from 40096 to 40448 
+	114) 8  7  4  3   -- Memory is 40800, from 40448 to 40800 
+	115) 8  7  5  0   -- Memory is 41152, from 40800 to 41152 
+	116) 8  7  5  1   -- Memory is 41504, from 41152 to 41504 
+	117) 8  7  5  2   -- Memory is 41856, from 41504 to 41856 
+	118) 8  7  5  3   -- Memory is 42208, from 41856 to 42208 
+	119) 8  7  5  4   -- Memory is 42560, from 42208 to 42560 
+	120) 8  7  6  0   -- Memory is 42912, from 42560 to 42912 
+	121) 8  7  6  1   -- Memory is 43264, from 42912 to 43264 
+	122) 8  7  6  2   -- Memory is 43616, from 43264 to 43616 
+	123) 8  7  6  3   -- Memory is 43968, from 43616 to 43968 
+	124) 8  7  6  4   -- Memory is 44320, from 43968 to 44320 
+	125) 8  7  6  5   -- Memory is 44672, from 44320 to 44672 
+idx: 0 --> No combination for 3  2  1  0  
+idx: 1 --> No combination for 4  2  1  0  
+idx: 2 --> No combination for 4  3  1  0  
+idx: 3 --> No combination for 4  3  2  0  
+idx: 4 --> No combination for 4  3  2  1  
+idx: 5 --> No combination for 5  2  1  0  
+idx: 6 --> No combination for 5  3  1  0  
+idx: 7 --> No combination for 5  3  2  0  
+idx: 8 --> No combination for 5  3  2  1  
+idx: 9 --> No combination for 5  4  1  0  
+idx: 10 --> No combination for 5  4  2  0  
+idx: 11 --> No combination for 5  4  2  1  
+idx: 12 --> No combination for 5  4  3  0  
+idx: 13 --> No combination for 5  4  3  1  
+idx: 14 --> No combination for 5  4  3  2  
+idx: 15 --> No combination for 6  2  1  0  
+idx: 16 --> No combination for 6  3  1  0  
+idx: 17 - Best time: 16 - area: 450
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 18 - Best time: 16 - area: 430
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 19 - Best time: 13 - area: 430
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 20 - Best time: 16 - area: 420
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 21 - Best time: 16 - area: 400
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 22 --> No combination for 6  4  3  0  
+idx: 23 --> No combination for 6  4  3  1  
+idx: 24 --> No combination for 6  4  3  2  
+idx: 25 - Best time: 18 - area: 400
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 26 - Best time: 21 - area: 390
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 27 - Best time: 21 - area: 370
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 28 --> No combination for 6  5  3  0  
+idx: 29 --> No combination for 6  5  3  1  
+idx: 30 - Best time: 26 - area: 450
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 
+idx: 31 - Best time: 18 - area: 450
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 32 - Best time: 18 - area: 450
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 33 - Best time: 21 - area: 430
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 34 --> No combination for 6  5  4  3  
+idx: 35 --> No combination for 7  2  1  0  
+idx: 36 - Best time: 14 - area: 360
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 37 - Best time: 20 - area: 350
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 38 - Best time: 20 - area: 330
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 39 - Best time: 17 - area: 330
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 40 - Best time: 20 - area: 320
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 41 - Best time: 20 - area: 300
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 42 - Best time: 16 - area: 450
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 43 - Best time: 17 - area: 410
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 44 - Best time: 20 - area: 390
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 45 - Best time: 22 - area: 300
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 46 - Best time: 25 - area: 290
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 47 - Best time: 25 - area: 270
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 48 - Best time: 21 - area: 420
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 49 - Best time: 22 - area: 380
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 50 - Best time: 25 - area: 360
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 51 - Best time: 21 - area: 390
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 52 - Best time: 22 - area: 350
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 53 - Best time: 25 - area: 330
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 54 --> No combination for 7  5  4  3  
+idx: 55 --> No combination for 7  6  1  0  
+idx: 56 --> No combination for 7  6  2  0  
+idx: 57 --> No combination for 7  6  2  1  
+idx: 58 --> No combination for 7  6  3  0  
+idx: 59 --> No combination for 7  6  3  1  
+idx: 60 --> No combination for 7  6  3  2  
+idx: 61 --> No combination for 7  6  4  0  
+idx: 62 --> No combination for 7  6  4  1  
+idx: 63 --> No combination for 7  6  4  2  
+idx: 64 --> No combination for 7  6  4  3  
+idx: 65 --> No combination for 7  6  5  0  
+idx: 66 --> No combination for 7  6  5  1  
+idx: 67 --> No combination for 7  6  5  2  
+idx: 68 --> No combination for 7  6  5  3  
+idx: 69 --> No combination for 7  6  5  4  
+idx: 70 --> No combination for 8  2  1  0  
+idx: 71 - Best time: 26 - area: 310
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 72 - Best time: 32 - area: 300
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 73 - Best time: 32 - area: 280
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 74 - Best time: 29 - area: 280
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 75 - Best time: 32 - area: 270
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 76 - Best time: 32 - area: 250
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 77 - Best time: 28 - area: 400
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 78 - Best time: 29 - area: 360
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 79 - Best time: 32 - area: 340
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 80 - Best time: 34 - area: 250
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 81 - Best time: 37 - area: 240
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 82 - Best time: 37 - area: 220
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 83 - Best time: 33 - area: 370
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 84 - Best time: 34 - area: 330
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 85 - Best time: 37 - area: 310
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 86 - Best time: 33 - area: 340
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 87 - Best time: 34 - area: 300
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 88 - Best time: 37 - area: 280
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 89 --> No combination for 8  5  4  3  
+idx: 90 --> No combination for 8  6  1  0  
+idx: 91 --> No combination for 8  6  2  0  
+idx: 92 --> No combination for 8  6  2  1  
+idx: 93 --> No combination for 8  6  3  0  
+idx: 94 --> No combination for 8  6  3  1  
+idx: 95 --> No combination for 8  6  3  2  
+idx: 96 --> No combination for 8  6  4  0  
+idx: 97 --> No combination for 8  6  4  1  
+idx: 98 --> No combination for 8  6  4  2  
+idx: 99 --> No combination for 8  6  4  3  
+idx: 100 --> No combination for 8  6  5  0  
+idx: 101 --> No combination for 8  6  5  1  
+idx: 102 --> No combination for 8  6  5  2  
+idx: 103 --> No combination for 8  6  5  3  
+idx: 104 --> No combination for 8  6  5  4  
+idx: 105 --> No combination for 8  7  1  0  
+idx: 106 --> No combination for 8  7  2  0  
+idx: 107 --> No combination for 8  7  2  1  
+idx: 108 --> No combination for 8  7  3  0  
+idx: 109 --> No combination for 8  7  3  1  
+idx: 110 --> No combination for 8  7  3  2  
+idx: 111 --> No combination for 8  7  4  0  
+idx: 112 - Best time: 31 - area: 440
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 113 - Best time: 32 - area: 440
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 114 --> No combination for 8  7  4  3  
+idx: 115 - Best time: 34 - area: 430
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 116 - Best time: 34 - area: 430
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 117 - Best time: 37 - area: 410
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 118 --> No combination for 8  7  5  3  
+idx: 119 --> No combination for 8  7  5  4  
+idx: 120 --> No combination for 8  7  6  0  
+idx: 121 --> No combination for 8  7  6  1  
+idx: 122 --> No combination for 8  7  6  2  
+idx: 123 --> No combination for 8  7  6  3  
+idx: 124 --> No combination for 8  7  6  4  
+idx: 125 --> No combination for 8  7  6  5  
+Best Combination:   6  1,  4  1,  1  1,  0  1, - Time: 13 - Area: 430
+
+Number of total combination witk k equal to 5 are: 126
+	Shared memory Total is 47192 -- Piece of shared memory is 372 -- Offset is 320
+	0) 4  3  2  1  0   -- Memory is 692, from 320 to 692 
+	1) 5  3  2  1  0   -- Memory is 1064, from 692 to 1064 
+	2) 5  4  2  1  0   -- Memory is 1436, from 1064 to 1436 
+	3) 5  4  3  1  0   -- Memory is 1808, from 1436 to 1808 
+	4) 5  4  3  2  0   -- Memory is 2180, from 1808 to 2180 
+	5) 5  4  3  2  1   -- Memory is 2552, from 2180 to 2552 
+	6) 6  3  2  1  0   -- Memory is 2924, from 2552 to 2924 
+	7) 6  4  2  1  0   -- Memory is 3296, from 2924 to 3296 
+	8) 6  4  3  1  0   -- Memory is 3668, from 3296 to 3668 
+	9) 6  4  3  2  0   -- Memory is 4040, from 3668 to 4040 
+	10) 6  4  3  2  1   -- Memory is 4412, from 4040 to 4412 
+	11) 6  5  2  1  0   -- Memory is 4784, from 4412 to 4784 
+	12) 6  5  3  1  0   -- Memory is 5156, from 4784 to 5156 
+	13) 6  5  3  2  0   -- Memory is 5528, from 5156 to 5528 
+	14) 6  5  3  2  1   -- Memory is 5900, from 5528 to 5900 
+	15) 6  5  4  1  0   -- Memory is 6272, from 5900 to 6272 
+	16) 6  5  4  2  0   -- Memory is 6644, from 6272 to 6644 
+	17) 6  5  4  2  1   -- Memory is 7016, from 6644 to 7016 
+	18) 6  5  4  3  0   -- Memory is 7388, from 7016 to 7388 
+	19) 6  5  4  3  1   -- Memory is 7760, from 7388 to 7760 
+	20) 6  5  4  3  2   -- Memory is 8132, from 7760 to 8132 
+	21) 7  3  2  1  0   -- Memory is 8504, from 8132 to 8504 
+	22) 7  4  2  1  0   -- Memory is 8876, from 8504 to 8876 
+	23) 7  4  3  1  0   -- Memory is 9248, from 8876 to 9248 
+	24) 7  4  3  2  0   -- Memory is 9620, from 9248 to 9620 
+	25) 7  4  3  2  1   -- Memory is 9992, from 9620 to 9992 
+	26) 7  5  2  1  0   -- Memory is 10364, from 9992 to 10364 
+	27) 7  5  3  1  0   -- Memory is 10736, from 10364 to 10736 
+	28) 7  5  3  2  0   -- Memory is 11108, from 10736 to 11108 
+	29) 7  5  3  2  1   -- Memory is 11480, from 11108 to 11480 
+	30) 7  5  4  1  0   -- Memory is 11852, from 11480 to 11852 
+	31) 7  5  4  2  0   -- Memory is 12224, from 11852 to 12224 
+	32) 7  5  4  2  1   -- Memory is 12596, from 12224 to 12596 
+	33) 7  5  4  3  0   -- Memory is 12968, from 12596 to 12968 
+	34) 7  5  4  3  1   -- Memory is 13340, from 12968 to 13340 
+	35) 7  5  4  3  2   -- Memory is 13712, from 13340 to 13712 
+	36) 7  6  2  1  0   -- Memory is 14084, from 13712 to 14084 
+	37) 7  6  3  1  0   -- Memory is 14456, from 14084 to 14456 
+	38) 7  6  3  2  0   -- Memory is 14828, from 14456 to 14828 
+	39) 7  6  3  2  1   -- Memory is 15200, from 14828 to 15200 
+	40) 7  6  4  1  0   -- Memory is 15572, from 15200 to 15572 
+	41) 7  6  4  2  0   -- Memory is 15944, from 15572 to 15944 
+	42) 7  6  4  2  1   -- Memory is 16316, from 15944 to 16316 
+	43) 7  6  4  3  0   -- Memory is 16688, from 16316 to 16688 
+	44) 7  6  4  3  1   -- Memory is 17060, from 16688 to 17060 
+	45) 7  6  4  3  2   -- Memory is 17432, from 17060 to 17432 
+	46) 7  6  5  1  0   -- Memory is 17804, from 17432 to 17804 
+	47) 7  6  5  2  0   -- Memory is 18176, from 17804 to 18176 
+	48) 7  6  5  2  1   -- Memory is 18548, from 18176 to 18548 
+	49) 7  6  5  3  0   -- Memory is 18920, from 18548 to 18920 
+	50) 7  6  5  3  1   -- Memory is 19292, from 18920 to 19292 
+	51) 7  6  5  3  2   -- Memory is 19664, from 19292 to 19664 
+	52) 7  6  5  4  0   -- Memory is 20036, from 19664 to 20036 
+	53) 7  6  5  4  1   -- Memory is 20408, from 20036 to 20408 
+	54) 7  6  5  4  2   -- Memory is 20780, from 20408 to 20780 
+	55) 7  6  5  4  3   -- Memory is 21152, from 20780 to 21152 
+	56) 8  3  2  1  0   -- Memory is 21524, from 21152 to 21524 
+	57) 8  4  2  1  0   -- Memory is 21896, from 21524 to 21896 
+	58) 8  4  3  1  0   -- Memory is 22268, from 21896 to 22268 
+	59) 8  4  3  2  0   -- Memory is 22640, from 22268 to 22640 
+	60) 8  4  3  2  1   -- Memory is 23012, from 22640 to 23012 
+	61) 8  5  2  1  0   -- Memory is 23384, from 23012 to 23384 
+	62) 8  5  3  1  0   -- Memory is 23756, from 23384 to 23756 
+	63) 8  5  3  2  0   -- Memory is 24128, from 23756 to 24128 
+	64) 8  5  3  2  1   -- Memory is 24500, from 24128 to 24500 
+	65) 8  5  4  1  0   -- Memory is 24872, from 24500 to 24872 
+	66) 8  5  4  2  0   -- Memory is 25244, from 24872 to 25244 
+	67) 8  5  4  2  1   -- Memory is 25616, from 25244 to 25616 
+	68) 8  5  4  3  0   -- Memory is 25988, from 25616 to 25988 
+	69) 8  5  4  3  1   -- Memory is 26360, from 25988 to 26360 
+	70) 8  5  4  3  2   -- Memory is 26732, from 26360 to 26732 
+	71) 8  6  2  1  0   -- Memory is 27104, from 26732 to 27104 
+	72) 8  6  3  1  0   -- Memory is 27476, from 27104 to 27476 
+	73) 8  6  3  2  0   -- Memory is 27848, from 27476 to 27848 
+	74) 8  6  3  2  1   -- Memory is 28220, from 27848 to 28220 
+	75) 8  6  4  1  0   -- Memory is 28592, from 28220 to 28592 
+	76) 8  6  4  2  0   -- Memory is 28964, from 28592 to 28964 
+	77) 8  6  4  2  1   -- Memory is 29336, from 28964 to 29336 
+	78) 8  6  4  3  0   -- Memory is 29708, from 29336 to 29708 
+	79) 8  6  4  3  1   -- Memory is 30080, from 29708 to 30080 
+	80) 8  6  4  3  2   -- Memory is 30452, from 30080 to 30452 
+	81) 8  6  5  1  0   -- Memory is 30824, from 30452 to 30824 
+	82) 8  6  5  2  0   -- Memory is 31196, from 30824 to 31196 
+	83) 8  6  5  2  1   -- Memory is 31568, from 31196 to 31568 
+	84) 8  6  5  3  0   -- Memory is 31940, from 31568 to 31940 
+	85) 8  6  5  3  1   -- Memory is 32312, from 31940 to 32312 
+	86) 8  6  5  3  2   -- Memory is 32684, from 32312 to 32684 
+	87) 8  6  5  4  0   -- Memory is 33056, from 32684 to 33056 
+	88) 8  6  5  4  1   -- Memory is 33428, from 33056 to 33428 
+	89) 8  6  5  4  2   -- Memory is 33800, from 33428 to 33800 
+	90) 8  6  5  4  3   -- Memory is 34172, from 33800 to 34172 
+	91) 8  7  2  1  0   -- Memory is 34544, from 34172 to 34544 
+	92) 8  7  3  1  0   -- Memory is 34916, from 34544 to 34916 
+	93) 8  7  3  2  0   -- Memory is 35288, from 34916 to 35288 
+	94) 8  7  3  2  1   -- Memory is 35660, from 35288 to 35660 
+	95) 8  7  4  1  0   -- Memory is 36032, from 35660 to 36032 
+	96) 8  7  4  2  0   -- Memory is 36404, from 36032 to 36404 
+	97) 8  7  4  2  1   -- Memory is 36776, from 36404 to 36776 
+	98) 8  7  4  3  0   -- Memory is 37148, from 36776 to 37148 
+	99) 8  7  4  3  1   -- Memory is 37520, from 37148 to 37520 
+	100) 8  7  4  3  2   -- Memory is 37892, from 37520 to 37892 
+	101) 8  7  5  1  0   -- Memory is 38264, from 37892 to 38264 
+	102) 8  7  5  2  0   -- Memory is 38636, from 38264 to 38636 
+	103) 8  7  5  2  1   -- Memory is 39008, from 38636 to 39008 
+	104) 8  7  5  3  0   -- Memory is 39380, from 39008 to 39380 
+	105) 8  7  5  3  1   -- Memory is 39752, from 39380 to 39752 
+	106) 8  7  5  3  2   -- Memory is 40124, from 39752 to 40124 
+	107) 8  7  5  4  0   -- Memory is 40496, from 40124 to 40496 
+	108) 8  7  5  4  1   -- Memory is 40868, from 40496 to 40868 
+	109) 8  7  5  4  2   -- Memory is 41240, from 40868 to 41240 
+	110) 8  7  5  4  3   -- Memory is 41612, from 41240 to 41612 
+	111) 8  7  6  1  0   -- Memory is 41984, from 41612 to 41984 
+	112) 8  7  6  2  0   -- Memory is 42356, from 41984 to 42356 
+	113) 8  7  6  2  1   -- Memory is 42728, from 42356 to 42728 
+	114) 8  7  6  3  0   -- Memory is 43100, from 42728 to 43100 
+	115) 8  7  6  3  1   -- Memory is 43472, from 43100 to 43472 
+	116) 8  7  6  3  2   -- Memory is 43844, from 43472 to 43844 
+	117) 8  7  6  4  0   -- Memory is 44216, from 43844 to 44216 
+	118) 8  7  6  4  1   -- Memory is 44588, from 44216 to 44588 
+	119) 8  7  6  4  2   -- Memory is 44960, from 44588 to 44960 
+	120) 8  7  6  4  3   -- Memory is 45332, from 44960 to 45332 
+	121) 8  7  6  5  0   -- Memory is 45704, from 45332 to 45704 
+	122) 8  7  6  5  1   -- Memory is 46076, from 45704 to 46076 
+	123) 8  7  6  5  2   -- Memory is 46448, from 46076 to 46448 
+	124) 8  7  6  5  3   -- Memory is 46820, from 46448 to 46820 
+	125) 8  7  6  5  4   -- Memory is 47192, from 46820 to 47192 
+idx: 0 --> No combination for 4  3  2  1  0  
+idx: 1 --> No combination for 5  3  2  1  0  
+idx: 2 --> No combination for 5  4  2  1  0  
+idx: 3 --> No combination for 5  4  3  1  0  
+idx: 4 --> No combination for 5  4  3  2  0  
+idx: 5 --> No combination for 5  4  3  2  1  
+idx: 6 --> No combination for 6  3  2  1  0  
+idx: 7 - Best time: 16 - area: 440
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 8 --> No combination for 6  4  3  1  0  
+idx: 9 --> No combination for 6  4  3  2  0  
+idx: 10 --> No combination for 6  4  3  2  1  
+idx: 11 - Best time: 21 - area: 410
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 12 --> No combination for 6  5  3  1  0  
+idx: 13 --> No combination for 6  5  3  2  0  
+idx: 14 --> No combination for 6  5  3  2  1  
+idx: 15 --> No combination for 6  5  4  1  0  
+idx: 16 --> No combination for 6  5  4  2  0  
+idx: 17 - Best time: 21 - area: 440
+	id: 6 - occurency: 1 - area: 300 - speed: 6
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 18 --> No combination for 6  5  4  3  0  
+idx: 19 --> No combination for 6  5  4  3  1  
+idx: 20 --> No combination for 6  5  4  3  2  
+idx: 21 - Best time: 20 - area: 370
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 22 - Best time: 20 - area: 340
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 23 - Best time: 17 - area: 430
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 24 - Best time: 20 - area: 420
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 25 - Best time: 20 - area: 400
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 26 - Best time: 25 - area: 310
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 27 - Best time: 22 - area: 400
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 28 - Best time: 25 - area: 390
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 29 - Best time: 25 - area: 370
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 30 - Best time: 22 - area: 370
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 31 - Best time: 25 - area: 360
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 32 - Best time: 25 - area: 340
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 33 - Best time: 22 - area: 450
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 34 - Best time: 22 - area: 450
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 35 - Best time: 25 - area: 430
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 36 --> No combination for 7  6  2  1  0  
+idx: 37 --> No combination for 7  6  3  1  0  
+idx: 38 --> No combination for 7  6  3  2  0  
+idx: 39 --> No combination for 7  6  3  2  1  
+idx: 40 --> No combination for 7  6  4  1  0  
+idx: 41 --> No combination for 7  6  4  2  0  
+idx: 42 --> No combination for 7  6  4  2  1  
+idx: 43 --> No combination for 7  6  4  3  0  
+idx: 44 --> No combination for 7  6  4  3  1  
+idx: 45 --> No combination for 7  6  4  3  2  
+idx: 46 --> No combination for 7  6  5  1  0  
+idx: 47 --> No combination for 7  6  5  2  0  
+idx: 48 --> No combination for 7  6  5  2  1  
+idx: 49 --> No combination for 7  6  5  3  0  
+idx: 50 --> No combination for 7  6  5  3  1  
+idx: 51 --> No combination for 7  6  5  3  2  
+idx: 52 --> No combination for 7  6  5  4  0  
+idx: 53 --> No combination for 7  6  5  4  1  
+idx: 54 --> No combination for 7  6  5  4  2  
+idx: 55 --> No combination for 7  6  5  4  3  
+idx: 56 - Best time: 32 - area: 320
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 57 - Best time: 32 - area: 290
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 58 - Best time: 29 - area: 380
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 59 - Best time: 32 - area: 370
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 60 - Best time: 32 - area: 350
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 61 - Best time: 37 - area: 260
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 62 - Best time: 34 - area: 350
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 63 - Best time: 37 - area: 340
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 64 - Best time: 37 - area: 320
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 65 - Best time: 34 - area: 320
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 66 - Best time: 37 - area: 310
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 67 - Best time: 37 - area: 290
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 68 - Best time: 33 - area: 440
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 0 - occurency: 2 - area: 40 - speed: 1
+ 
+idx: 69 - Best time: 34 - area: 400
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 2 - area: 20 - speed: 2
+ 
+idx: 70 - Best time: 37 - area: 380
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 2 - area: 10 - speed: 5
+ 
+idx: 71 --> No combination for 8  6  2  1  0  
+idx: 72 --> No combination for 8  6  3  1  0  
+idx: 73 --> No combination for 8  6  3  2  0  
+idx: 74 --> No combination for 8  6  3  2  1  
+idx: 75 --> No combination for 8  6  4  1  0  
+idx: 76 --> No combination for 8  6  4  2  0  
+idx: 77 --> No combination for 8  6  4  2  1  
+idx: 78 --> No combination for 8  6  4  3  0  
+idx: 79 --> No combination for 8  6  4  3  1  
+idx: 80 --> No combination for 8  6  4  3  2  
+idx: 81 --> No combination for 8  6  5  1  0  
+idx: 82 --> No combination for 8  6  5  2  0  
+idx: 83 --> No combination for 8  6  5  2  1  
+idx: 84 --> No combination for 8  6  5  3  0  
+idx: 85 --> No combination for 8  6  5  3  1  
+idx: 86 --> No combination for 8  6  5  3  2  
+idx: 87 --> No combination for 8  6  5  4  0  
+idx: 88 --> No combination for 8  6  5  4  1  
+idx: 89 --> No combination for 8  6  5  4  2  
+idx: 90 --> No combination for 8  6  5  4  3  
+idx: 91 --> No combination for 8  7  2  1  0  
+idx: 92 --> No combination for 8  7  3  1  0  
+idx: 93 --> No combination for 8  7  3  2  0  
+idx: 94 --> No combination for 8  7  3  2  1  
+idx: 95 --> No combination for 8  7  4  1  0  
+idx: 96 --> No combination for 8  7  4  2  0  
+idx: 97 - Best time: 32 - area: 450
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 98 --> No combination for 8  7  4  3  0  
+idx: 99 --> No combination for 8  7  4  3  1  
+idx: 100 --> No combination for 8  7  4  3  2  
+idx: 101 - Best time: 34 - area: 450
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 102 - Best time: 37 - area: 440
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 103 - Best time: 37 - area: 420
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 104 --> No combination for 8  7  5  3  0  
+idx: 105 --> No combination for 8  7  5  3  1  
+idx: 106 --> No combination for 8  7  5  3  2  
+idx: 107 --> No combination for 8  7  5  4  0  
+idx: 108 --> No combination for 8  7  5  4  1  
+idx: 109 --> No combination for 8  7  5  4  2  
+idx: 110 --> No combination for 8  7  5  4  3  
+idx: 111 --> No combination for 8  7  6  1  0  
+idx: 112 --> No combination for 8  7  6  2  0  
+idx: 113 --> No combination for 8  7  6  2  1  
+idx: 114 --> No combination for 8  7  6  3  0  
+idx: 115 --> No combination for 8  7  6  3  1  
+idx: 116 --> No combination for 8  7  6  3  2  
+idx: 117 --> No combination for 8  7  6  4  0  
+idx: 118 --> No combination for 8  7  6  4  1  
+idx: 119 --> No combination for 8  7  6  4  2  
+idx: 120 --> No combination for 8  7  6  4  3  
+idx: 121 --> No combination for 8  7  6  5  0  
+idx: 122 --> No combination for 8  7  6  5  1  
+idx: 123 --> No combination for 8  7  6  5  2  
+idx: 124 --> No combination for 8  7  6  5  3  
+idx: 125 --> No combination for 8  7  6  5  4  
+Best Combination:   6  1,  4  1,  2  1,  1  1,  0  1, - Time: 16 - Area: 440
+
+Number of total combination witk k equal to 6 are: 84
+	Shared memory Total is 33248 -- Piece of shared memory is 392 -- Offset is 320
+	0) 5  4  3  2  1  0   -- Memory is 712, from 320 to 712 
+	1) 6  4  3  2  1  0   -- Memory is 1104, from 712 to 1104 
+	2) 6  5  3  2  1  0   -- Memory is 1496, from 1104 to 1496 
+	3) 6  5  4  2  1  0   -- Memory is 1888, from 1496 to 1888 
+	4) 6  5  4  3  1  0   -- Memory is 2280, from 1888 to 2280 
+	5) 6  5  4  3  2  0   -- Memory is 2672, from 2280 to 2672 
+	6) 6  5  4  3  2  1   -- Memory is 3064, from 2672 to 3064 
+	7) 7  4  3  2  1  0   -- Memory is 3456, from 3064 to 3456 
+	8) 7  5  3  2  1  0   -- Memory is 3848, from 3456 to 3848 
+	9) 7  5  4  2  1  0   -- Memory is 4240, from 3848 to 4240 
+	10) 7  5  4  3  1  0   -- Memory is 4632, from 4240 to 4632 
+	11) 7  5  4  3  2  0   -- Memory is 5024, from 4632 to 5024 
+	12) 7  5  4  3  2  1   -- Memory is 5416, from 5024 to 5416 
+	13) 7  6  3  2  1  0   -- Memory is 5808, from 5416 to 5808 
+	14) 7  6  4  2  1  0   -- Memory is 6200, from 5808 to 6200 
+	15) 7  6  4  3  1  0   -- Memory is 6592, from 6200 to 6592 
+	16) 7  6  4  3  2  0   -- Memory is 6984, from 6592 to 6984 
+	17) 7  6  4  3  2  1   -- Memory is 7376, from 6984 to 7376 
+	18) 7  6  5  2  1  0   -- Memory is 7768, from 7376 to 7768 
+	19) 7  6  5  3  1  0   -- Memory is 8160, from 7768 to 8160 
+	20) 7  6  5  3  2  0   -- Memory is 8552, from 8160 to 8552 
+	21) 7  6  5  3  2  1   -- Memory is 8944, from 8552 to 8944 
+	22) 7  6  5  4  1  0   -- Memory is 9336, from 8944 to 9336 
+	23) 7  6  5  4  2  0   -- Memory is 9728, from 9336 to 9728 
+	24) 7  6  5  4  2  1   -- Memory is 10120, from 9728 to 10120 
+	25) 7  6  5  4  3  0   -- Memory is 10512, from 10120 to 10512 
+	26) 7  6  5  4  3  1   -- Memory is 10904, from 10512 to 10904 
+	27) 7  6  5  4  3  2   -- Memory is 11296, from 10904 to 11296 
+	28) 8  4  3  2  1  0   -- Memory is 11688, from 11296 to 11688 
+	29) 8  5  3  2  1  0   -- Memory is 12080, from 11688 to 12080 
+	30) 8  5  4  2  1  0   -- Memory is 12472, from 12080 to 12472 
+	31) 8  5  4  3  1  0   -- Memory is 12864, from 12472 to 12864 
+	32) 8  5  4  3  2  0   -- Memory is 13256, from 12864 to 13256 
+	33) 8  5  4  3  2  1   -- Memory is 13648, from 13256 to 13648 
+	34) 8  6  3  2  1  0   -- Memory is 14040, from 13648 to 14040 
+	35) 8  6  4  2  1  0   -- Memory is 14432, from 14040 to 14432 
+	36) 8  6  4  3  1  0   -- Memory is 14824, from 14432 to 14824 
+	37) 8  6  4  3  2  0   -- Memory is 15216, from 14824 to 15216 
+	38) 8  6  4  3  2  1   -- Memory is 15608, from 15216 to 15608 
+	39) 8  6  5  2  1  0   -- Memory is 16000, from 15608 to 16000 
+	40) 8  6  5  3  1  0   -- Memory is 16392, from 16000 to 16392 
+	41) 8  6  5  3  2  0   -- Memory is 16784, from 16392 to 16784 
+	42) 8  6  5  3  2  1   -- Memory is 17176, from 16784 to 17176 
+	43) 8  6  5  4  1  0   -- Memory is 17568, from 17176 to 17568 
+	44) 8  6  5  4  2  0   -- Memory is 17960, from 17568 to 17960 
+	45) 8  6  5  4  2  1   -- Memory is 18352, from 17960 to 18352 
+	46) 8  6  5  4  3  0   -- Memory is 18744, from 18352 to 18744 
+	47) 8  6  5  4  3  1   -- Memory is 19136, from 18744 to 19136 
+	48) 8  6  5  4  3  2   -- Memory is 19528, from 19136 to 19528 
+	49) 8  7  3  2  1  0   -- Memory is 19920, from 19528 to 19920 
+	50) 8  7  4  2  1  0   -- Memory is 20312, from 19920 to 20312 
+	51) 8  7  4  3  1  0   -- Memory is 20704, from 20312 to 20704 
+	52) 8  7  4  3  2  0   -- Memory is 21096, from 20704 to 21096 
+	53) 8  7  4  3  2  1   -- Memory is 21488, from 21096 to 21488 
+	54) 8  7  5  2  1  0   -- Memory is 21880, from 21488 to 21880 
+	55) 8  7  5  3  1  0   -- Memory is 22272, from 21880 to 22272 
+	56) 8  7  5  3  2  0   -- Memory is 22664, from 22272 to 22664 
+	57) 8  7  5  3  2  1   -- Memory is 23056, from 22664 to 23056 
+	58) 8  7  5  4  1  0   -- Memory is 23448, from 23056 to 23448 
+	59) 8  7  5  4  2  0   -- Memory is 23840, from 23448 to 23840 
+	60) 8  7  5  4  2  1   -- Memory is 24232, from 23840 to 24232 
+	61) 8  7  5  4  3  0   -- Memory is 24624, from 24232 to 24624 
+	62) 8  7  5  4  3  1   -- Memory is 25016, from 24624 to 25016 
+	63) 8  7  5  4  3  2   -- Memory is 25408, from 25016 to 25408 
+	64) 8  7  6  2  1  0   -- Memory is 25800, from 25408 to 25800 
+	65) 8  7  6  3  1  0   -- Memory is 26192, from 25800 to 26192 
+	66) 8  7  6  3  2  0   -- Memory is 26584, from 26192 to 26584 
+	67) 8  7  6  3  2  1   -- Memory is 26976, from 26584 to 26976 
+	68) 8  7  6  4  1  0   -- Memory is 27368, from 26976 to 27368 
+	69) 8  7  6  4  2  0   -- Memory is 27760, from 27368 to 27760 
+	70) 8  7  6  4  2  1   -- Memory is 28152, from 27760 to 28152 
+	71) 8  7  6  4  3  0   -- Memory is 28544, from 28152 to 28544 
+	72) 8  7  6  4  3  1   -- Memory is 28936, from 28544 to 28936 
+	73) 8  7  6  4  3  2   -- Memory is 29328, from 28936 to 29328 
+	74) 8  7  6  5  1  0   -- Memory is 29720, from 29328 to 29720 
+	75) 8  7  6  5  2  0   -- Memory is 30112, from 29720 to 30112 
+	76) 8  7  6  5  2  1   -- Memory is 30504, from 30112 to 30504 
+	77) 8  7  6  5  3  0   -- Memory is 30896, from 30504 to 30896 
+	78) 8  7  6  5  3  1   -- Memory is 31288, from 30896 to 31288 
+	79) 8  7  6  5  3  2   -- Memory is 31680, from 31288 to 31680 
+	80) 8  7  6  5  4  0   -- Memory is 32072, from 31680 to 32072 
+	81) 8  7  6  5  4  1   -- Memory is 32464, from 32072 to 32464 
+	82) 8  7  6  5  4  2   -- Memory is 32856, from 32464 to 32856 
+	83) 8  7  6  5  4  3   -- Memory is 33248, from 32856 to 33248 
+idx: 0 --> No combination for 5  4  3  2  1  0  
+idx: 1 --> No combination for 6  4  3  2  1  0  
+idx: 2 --> No combination for 6  5  3  2  1  0  
+idx: 3 --> No combination for 6  5  4  2  1  0  
+idx: 4 --> No combination for 6  5  4  3  1  0  
+idx: 5 --> No combination for 6  5  4  3  2  0  
+idx: 6 --> No combination for 6  5  4  3  2  1  
+idx: 7 - Best time: 20 - area: 440
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 8 - Best time: 25 - area: 410
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 9 - Best time: 25 - area: 380
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 10 --> No combination for 7  5  4  3  1  0  
+idx: 11 --> No combination for 7  5  4  3  2  0  
+idx: 12 - Best time: 25 - area: 440
+	id: 7 - occurency: 1 - area: 200 - speed: 10
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 13 --> No combination for 7  6  3  2  1  0  
+idx: 14 --> No combination for 7  6  4  2  1  0  
+idx: 15 --> No combination for 7  6  4  3  1  0  
+idx: 16 --> No combination for 7  6  4  3  2  0  
+idx: 17 --> No combination for 7  6  4  3  2  1  
+idx: 18 --> No combination for 7  6  5  2  1  0  
+idx: 19 --> No combination for 7  6  5  3  1  0  
+idx: 20 --> No combination for 7  6  5  3  2  0  
+idx: 21 --> No combination for 7  6  5  3  2  1  
+idx: 22 --> No combination for 7  6  5  4  1  0  
+idx: 23 --> No combination for 7  6  5  4  2  0  
+idx: 24 --> No combination for 7  6  5  4  2  1  
+idx: 25 --> No combination for 7  6  5  4  3  0  
+idx: 26 --> No combination for 7  6  5  4  3  1  
+idx: 27 --> No combination for 7  6  5  4  3  2  
+idx: 28 - Best time: 32 - area: 390
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 29 - Best time: 37 - area: 360
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 30 - Best time: 37 - area: 330
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 31 - Best time: 34 - area: 420
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 32 - Best time: 37 - area: 410
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 33 - Best time: 37 - area: 390
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 
+idx: 34 --> No combination for 8  6  3  2  1  0  
+idx: 35 --> No combination for 8  6  4  2  1  0  
+idx: 36 --> No combination for 8  6  4  3  1  0  
+idx: 37 --> No combination for 8  6  4  3  2  0  
+idx: 38 --> No combination for 8  6  4  3  2  1  
+idx: 39 --> No combination for 8  6  5  2  1  0  
+idx: 40 --> No combination for 8  6  5  3  1  0  
+idx: 41 --> No combination for 8  6  5  3  2  0  
+idx: 42 --> No combination for 8  6  5  3  2  1  
+idx: 43 --> No combination for 8  6  5  4  1  0  
+idx: 44 --> No combination for 8  6  5  4  2  0  
+idx: 45 --> No combination for 8  6  5  4  2  1  
+idx: 46 --> No combination for 8  6  5  4  3  0  
+idx: 47 --> No combination for 8  6  5  4  3  1  
+idx: 48 --> No combination for 8  6  5  4  3  2  
+idx: 49 --> No combination for 8  7  3  2  1  0  
+idx: 50 --> No combination for 8  7  4  2  1  0  
+idx: 51 --> No combination for 8  7  4  3  1  0  
+idx: 52 --> No combination for 8  7  4  3  2  0  
+idx: 53 --> No combination for 8  7  4  3  2  1  
+idx: 54 --> No combination for 8  7  5  2  1  0  
+idx: 55 --> No combination for 8  7  5  3  1  0  
+idx: 56 --> No combination for 8  7  5  3  2  0  
+idx: 57 --> No combination for 8  7  5  3  2  1  
+idx: 58 --> No combination for 8  7  5  4  1  0  
+idx: 59 --> No combination for 8  7  5  4  2  0  
+idx: 60 --> No combination for 8  7  5  4  2  1  
+idx: 61 --> No combination for 8  7  5  4  3  0  
+idx: 62 --> No combination for 8  7  5  4  3  1  
+idx: 63 --> No combination for 8  7  5  4  3  2  
+idx: 64 --> No combination for 8  7  6  2  1  0  
+idx: 65 --> No combination for 8  7  6  3  1  0  
+idx: 66 --> No combination for 8  7  6  3  2  0  
+idx: 67 --> No combination for 8  7  6  3  2  1  
+idx: 68 --> No combination for 8  7  6  4  1  0  
+idx: 69 --> No combination for 8  7  6  4  2  0  
+idx: 70 --> No combination for 8  7  6  4  2  1  
+idx: 71 --> No combination for 8  7  6  4  3  0  
+idx: 72 --> No combination for 8  7  6  4  3  1  
+idx: 73 --> No combination for 8  7  6  4  3  2  
+idx: 74 --> No combination for 8  7  6  5  1  0  
+idx: 75 --> No combination for 8  7  6  5  2  0  
+idx: 76 --> No combination for 8  7  6  5  2  1  
+idx: 77 --> No combination for 8  7  6  5  3  0  
+idx: 78 --> No combination for 8  7  6  5  3  1  
+idx: 79 --> No combination for 8  7  6  5  3  2  
+idx: 80 --> No combination for 8  7  6  5  4  0  
+idx: 81 --> No combination for 8  7  6  5  4  1  
+idx: 82 --> No combination for 8  7  6  5  4  2  
+idx: 83 --> No combination for 8  7  6  5  4  3  
+Best Combination:   7  1,  4  1,  3  1,  2  1,  1  1,  0  1, - Time: 20 - Area: 440
+
+Number of total combination witk k equal to 7 are: 36
+	Shared memory Total is 15152 -- Piece of shared memory is 412 -- Offset is 320
+	0) 6  5  4  3  2  1  0   -- Memory is 732, from 320 to 732 
+	1) 7  5  4  3  2  1  0   -- Memory is 1144, from 732 to 1144 
+	2) 7  6  4  3  2  1  0   -- Memory is 1556, from 1144 to 1556 
+	3) 7  6  5  3  2  1  0   -- Memory is 1968, from 1556 to 1968 
+	4) 7  6  5  4  2  1  0   -- Memory is 2380, from 1968 to 2380 
+	5) 7  6  5  4  3  1  0   -- Memory is 2792, from 2380 to 2792 
+	6) 7  6  5  4  3  2  0   -- Memory is 3204, from 2792 to 3204 
+	7) 7  6  5  4  3  2  1   -- Memory is 3616, from 3204 to 3616 
+	8) 8  5  4  3  2  1  0   -- Memory is 4028, from 3616 to 4028 
+	9) 8  6  4  3  2  1  0   -- Memory is 4440, from 4028 to 4440 
+	10) 8  6  5  3  2  1  0   -- Memory is 4852, from 4440 to 4852 
+	11) 8  6  5  4  2  1  0   -- Memory is 5264, from 4852 to 5264 
+	12) 8  6  5  4  3  1  0   -- Memory is 5676, from 5264 to 5676 
+	13) 8  6  5  4  3  2  0   -- Memory is 6088, from 5676 to 6088 
+	14) 8  6  5  4  3  2  1   -- Memory is 6500, from 6088 to 6500 
+	15) 8  7  4  3  2  1  0   -- Memory is 6912, from 6500 to 6912 
+	16) 8  7  5  3  2  1  0   -- Memory is 7324, from 6912 to 7324 
+	17) 8  7  5  4  2  1  0   -- Memory is 7736, from 7324 to 7736 
+	18) 8  7  5  4  3  1  0   -- Memory is 8148, from 7736 to 8148 
+	19) 8  7  5  4  3  2  0   -- Memory is 8560, from 8148 to 8560 
+	20) 8  7  5  4  3  2  1   -- Memory is 8972, from 8560 to 8972 
+	21) 8  7  6  3  2  1  0   -- Memory is 9384, from 8972 to 9384 
+	22) 8  7  6  4  2  1  0   -- Memory is 9796, from 9384 to 9796 
+	23) 8  7  6  4  3  1  0   -- Memory is 10208, from 9796 to 10208 
+	24) 8  7  6  4  3  2  0   -- Memory is 10620, from 10208 to 10620 
+	25) 8  7  6  4  3  2  1   -- Memory is 11032, from 10620 to 11032 
+	26) 8  7  6  5  2  1  0   -- Memory is 11444, from 11032 to 11444 
+	27) 8  7  6  5  3  1  0   -- Memory is 11856, from 11444 to 11856 
+	28) 8  7  6  5  3  2  0   -- Memory is 12268, from 11856 to 12268 
+	29) 8  7  6  5  3  2  1   -- Memory is 12680, from 12268 to 12680 
+	30) 8  7  6  5  4  1  0   -- Memory is 13092, from 12680 to 13092 
+	31) 8  7  6  5  4  2  0   -- Memory is 13504, from 13092 to 13504 
+	32) 8  7  6  5  4  2  1   -- Memory is 13916, from 13504 to 13916 
+	33) 8  7  6  5  4  3  0   -- Memory is 14328, from 13916 to 14328 
+	34) 8  7  6  5  4  3  1   -- Memory is 14740, from 14328 to 14740 
+	35) 8  7  6  5  4  3  2   -- Memory is 15152, from 14740 to 15152 
+idx: 0 --> No combination for 6  5  4  3  2  1  0  
+idx: 1 --> No combination for 7  5  4  3  2  1  0  
+idx: 2 --> No combination for 7  6  4  3  2  1  0  
+idx: 3 --> No combination for 7  6  5  3  2  1  0  
+idx: 4 --> No combination for 7  6  5  4  2  1  0  
+idx: 5 --> No combination for 7  6  5  4  3  1  0  
+idx: 6 --> No combination for 7  6  5  4  3  2  0  
+idx: 7 --> No combination for 7  6  5  4  3  2  1  
+idx: 8 - Best time: 37 - area: 430
+	id: 8 - occurency: 1 - area: 150 - speed: 22
+ 	id: 5 - occurency: 1 - area: 40 - speed: 10
+ 	id: 4 - occurency: 1 - area: 70 - speed: 5
+ 	id: 3 - occurency: 1 - area: 100 - speed: 2
+ 	id: 2 - occurency: 1 - area: 10 - speed: 5
+ 	id: 1 - occurency: 1 - area: 20 - speed: 2
+ 	id: 0 - occurency: 1 - area: 40 - speed: 1
+ 
+idx: 9 --> No combination for 8  6  4  3  2  1  0  
+idx: 10 --> No combination for 8  6  5  3  2  1  0  
+idx: 11 --> No combination for 8  6  5  4  2  1  0  
+idx: 12 --> No combination for 8  6  5  4  3  1  0  
+idx: 13 --> No combination for 8  6  5  4  3  2  0  
+idx: 14 --> No combination for 8  6  5  4  3  2  1  
+idx: 15 --> No combination for 8  7  4  3  2  1  0  
+idx: 16 --> No combination for 8  7  5  3  2  1  0  
+idx: 17 --> No combination for 8  7  5  4  2  1  0  
+idx: 18 --> No combination for 8  7  5  4  3  1  0  
+idx: 19 --> No combination for 8  7  5  4  3  2  0  
+idx: 20 --> No combination for 8  7  5  4  3  2  1  
+idx: 21 --> No combination for 8  7  6  3  2  1  0  
+idx: 22 --> No combination for 8  7  6  4  2  1  0  
+idx: 23 --> No combination for 8  7  6  4  3  1  0  
+idx: 24 --> No combination for 8  7  6  4  3  2  0  
+idx: 25 --> No combination for 8  7  6  4  3  2  1  
+idx: 26 --> No combination for 8  7  6  5  2  1  0  
+idx: 27 --> No combination for 8  7  6  5  3  1  0  
+idx: 28 --> No combination for 8  7  6  5  3  2  0  
+idx: 29 --> No combination for 8  7  6  5  3  2  1  
+idx: 30 --> No combination for 8  7  6  5  4  1  0  
+idx: 31 --> No combination for 8  7  6  5  4  2  0  
+idx: 32 --> No combination for 8  7  6  5  4  2  1  
+idx: 33 --> No combination for 8  7  6  5  4  3  0  
+idx: 34 --> No combination for 8  7  6  5  4  3  1  
+idx: 35 --> No combination for 8  7  6  5  4  3  2  
+Best Combination:   8  1,  5  1,  4  1,  3  1,  2  1,  1  1,  0  1, - Time: 37 - Area: 430
+
+Number of total combination witk k equal to 8 are: 9
+	Shared memory Total is 4208 -- Piece of shared memory is 432 -- Offset is 320
+	0) 7  6  5  4  3  2  1  0   -- Memory is 752, from 320 to 752 
+	1) 8  6  5  4  3  2  1  0   -- Memory is 1184, from 752 to 1184 
+	2) 8  7  5  4  3  2  1  0   -- Memory is 1616, from 1184 to 1616 
+	3) 8  7  6  4  3  2  1  0   -- Memory is 2048, from 1616 to 2048 
+	4) 8  7  6  5  3  2  1  0   -- Memory is 2480, from 2048 to 2480 
+	5) 8  7  6  5  4  2  1  0   -- Memory is 2912, from 2480 to 2912 
+	6) 8  7  6  5  4  3  1  0   -- Memory is 3344, from 2912 to 3344 
+	7) 8  7  6  5  4  3  2  0   -- Memory is 3776, from 3344 to 3776 
+	8) 8  7  6  5  4  3  2  1   -- Memory is 4208, from 3776 to 4208 
+idx: 0 --> No combination for 7  6  5  4  3  2  1  0  
+idx: 1 --> No combination for 8  6  5  4  3  2  1  0  
+idx: 2 --> No combination for 8  7  5  4  3  2  1  0  
+idx: 3 --> No combination for 8  7  6  4  3  2  1  0  
+idx: 4 --> No combination for 8  7  6  5  3  2  1  0  
+idx: 5 --> No combination for 8  7  6  5  4  2  1  0  
+idx: 6 --> No combination for 8  7  6  5  4  3  1  0  
+idx: 7 --> No combination for 8  7  6  5  4  3  2  0  
+idx: 8 --> No combination for 8  7  6  5  4  3  2  1  
+Best Combination:   4 100, 40 10, 100 20, 10 200, 20 40, 40 70, 300 100, 70 10, - Time: 2147483647 - Area: 2147483647
+
+Number of total combination witk k equal to 9 are: 1
+	Shared memory Total is 772 -- Piece of shared memory is 452 -- Offset is 320
+	0) 8  7  6  5  4  3  2  1  0   -- Memory is 772, from 320 to 772 
+idx: 0 --> No combination for 8  7  6  5  4  3  2  1  0  
+Best Combination:  10 40, 20 70, 40 100, 300 10, 70 150, 100 300, 10 40, 20 70, 200 100, - Time: 2147483647 - Area: 2147483647
+
+
+Area Limit is 450
+Best solution has time 10:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  1
+Final area is 440
+
+The elapsed time is 0.043496 seconds

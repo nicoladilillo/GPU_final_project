@@ -1,0 +1,513 @@
+START reading operations
+START reading nodes
+0 MUL_3 MUL
+1 ADD_4 ADD
+2 ADD_8 ADD
+3 LOD_9 LOD
+4 ADD_13 ADD
+5 LOD_14 LOD
+6 MUL_17 MUL
+7 ADD_18 ADD
+8 ADD_36 ADD
+9 STR_37 STR
+10 ADD_42 ADD
+11 STR_43 STR
+12 AND_45 AND
+13 ADD_50 ADD
+14 STR_51 STR
+15 ASR_53 ASR
+16 AND_55 AND
+17 ADD_60 ADD
+18 STR_61 STR
+19 ASR_63 ASR
+20 AND_65 AND
+21 ADD_70 ADD
+22 STR_71 STR
+23 ASR_73 ASR
+24 AND_75 AND
+25 ADD_80 ADD
+26 STR_81 STR
+27 AND_83 AND
+28 ADD_88 ADD
+29 STR_89 STR
+30 ASR_91 ASR
+31 AND_93 AND
+32 ADD_98 ADD
+33 STR_99 STR
+34 ASR_101 ASR
+35 AND_103 AND
+36 ADD_108 ADD
+37 STR_109 STR
+38 ASR_111 ASR
+39 AND_113 AND
+40 ADD_118 ADD
+41 STR_119 STR
+42 ADD_124 ADD
+43 STR_125 STR
+44 ADD_130 ADD
+45 STR_131 STR
+46 ADD_133 ADD
+47 LOD_134 LOD
+48 AND_137 AND
+49 ADD_142 ADD
+50 STR_143 STR
+51 ADD_145 ADD
+52 LOD_146 LOD
+53 LSR_150 LSR
+54 AND_152 AND
+55 ADD_157 ADD
+56 STR_158 STR
+57 ADD_160 ADD
+58 LOD_161 LOD
+59 LSR_165 LSR
+60 AND_167 AND
+61 ADD_172 ADD
+62 STR_173 STR
+63 ADD_175 ADD
+64 LOD_176 LOD
+65 LSR_180 LSR
+66 AND_182 AND
+67 ADD_187 ADD
+68 STR_188 STR
+69 ADD_190 ADD
+70 LOD_191 LOD
+71 AND_194 AND
+72 ADD_199 ADD
+73 STR_200 STR
+74 ADD_202 ADD
+75 LOD_203 LOD
+76 LSR_207 LSR
+77 AND_209 AND
+78 ADD_214 ADD
+79 STR_215 STR
+80 ADD_217 ADD
+81 LOD_218 LOD
+82 LSR_222 LSR
+83 AND_224 AND
+84 ADD_229 ADD
+85 STR_230 STR
+86 ADD_232 ADD
+87 LOD_233 LOD
+88 LSR_237 LSR
+89 AND_239 AND
+90 ADD_244 ADD
+91 STR_245 STR
+92 ADD_250 ADD
+93 STR_251 STR
+94 ADD_256 ADD
+95 STR_257 STR
+96 AND_259 AND
+97 ADD_264 ADD
+98 STR_265 STR
+99 ASR_267 ASR
+100 AND_269 AND
+101 ADD_274 ADD
+102 STR_275 STR
+103 ADD_277 ADD
+104 LOD_278 LOD
+105 BNE_282 BNE
+START reading edge
+Node MUL_3(MUL) va in nodo ADD_4(ADD)
+Node ADD_4(ADD) va in nodo ADD_18(ADD)
+Node ADD_4(ADD) va in nodo AND_83(AND)
+Node ADD_4(ADD) va in nodo ASR_91(ASR)
+Node ADD_4(ADD) va in nodo ASR_101(ASR)
+Node ADD_4(ADD) va in nodo ASR_111(ASR)
+Node ADD_8(ADD) va in nodo LOD_9(LOD)
+Node LOD_9(LOD) va in nodo MUL_17(MUL)
+Node ADD_13(ADD) va in nodo LOD_14(LOD)
+Node LOD_14(LOD) va in nodo MUL_17(MUL)
+Node MUL_17(MUL) va in nodo ADD_18(ADD)
+Node ADD_18(ADD) va in nodo AND_45(AND)
+Node ADD_18(ADD) va in nodo ASR_53(ASR)
+Node ADD_18(ADD) va in nodo ASR_63(ASR)
+Node ADD_18(ADD) va in nodo ASR_73(ASR)
+Node ADD_36(ADD) va in nodo STR_37(STR)
+Node ADD_42(ADD) va in nodo STR_43(STR)
+Node AND_45(AND) va in nodo STR_51(STR)
+Node ADD_50(ADD) va in nodo STR_51(STR)
+Node ASR_53(ASR) va in nodo AND_55(AND)
+Node AND_55(AND) va in nodo STR_61(STR)
+Node ADD_60(ADD) va in nodo STR_61(STR)
+Node ASR_63(ASR) va in nodo AND_65(AND)
+Node AND_65(AND) va in nodo STR_71(STR)
+Node ADD_70(ADD) va in nodo STR_71(STR)
+Node ASR_73(ASR) va in nodo AND_75(AND)
+Node AND_75(AND) va in nodo STR_81(STR)
+Node ADD_80(ADD) va in nodo STR_81(STR)
+Node AND_83(AND) va in nodo STR_89(STR)
+Node ADD_88(ADD) va in nodo STR_89(STR)
+Node ASR_91(ASR) va in nodo AND_93(AND)
+Node AND_93(AND) va in nodo STR_99(STR)
+Node ADD_98(ADD) va in nodo STR_99(STR)
+Node ASR_101(ASR) va in nodo AND_103(AND)
+Node AND_103(AND) va in nodo STR_109(STR)
+Node ADD_108(ADD) va in nodo STR_109(STR)
+Node ASR_111(ASR) va in nodo AND_113(AND)
+Node AND_113(AND) va in nodo STR_119(STR)
+Node ADD_118(ADD) va in nodo STR_119(STR)
+Node ADD_124(ADD) va in nodo STR_125(STR)
+Node ADD_130(ADD) va in nodo STR_131(STR)
+Node ADD_133(ADD) va in nodo LOD_134(LOD)
+Node LOD_134(LOD) va in nodo AND_137(AND)
+Node AND_137(AND) va in nodo STR_143(STR)
+Node ADD_142(ADD) va in nodo STR_143(STR)
+Node ADD_145(ADD) va in nodo LOD_146(LOD)
+Node LOD_146(LOD) va in nodo LSR_150(LSR)
+Node LSR_150(LSR) va in nodo AND_152(AND)
+Node AND_152(AND) va in nodo STR_158(STR)
+Node ADD_157(ADD) va in nodo STR_158(STR)
+Node ADD_160(ADD) va in nodo LOD_161(LOD)
+Node LOD_161(LOD) va in nodo LSR_165(LSR)
+Node LSR_165(LSR) va in nodo AND_167(AND)
+Node AND_167(AND) va in nodo STR_173(STR)
+Node ADD_172(ADD) va in nodo STR_173(STR)
+Node ADD_175(ADD) va in nodo LOD_176(LOD)
+Node LOD_176(LOD) va in nodo LSR_180(LSR)
+Node LSR_180(LSR) va in nodo AND_182(AND)
+Node AND_182(AND) va in nodo STR_188(STR)
+Node ADD_187(ADD) va in nodo STR_188(STR)
+Node ADD_190(ADD) va in nodo LOD_191(LOD)
+Node LOD_191(LOD) va in nodo AND_194(AND)
+Node AND_194(AND) va in nodo STR_200(STR)
+Node ADD_199(ADD) va in nodo STR_200(STR)
+Node ADD_202(ADD) va in nodo LOD_203(LOD)
+Node LOD_203(LOD) va in nodo LSR_207(LSR)
+Node LSR_207(LSR) va in nodo AND_209(AND)
+Node AND_209(AND) va in nodo STR_215(STR)
+Node ADD_214(ADD) va in nodo STR_215(STR)
+Node ADD_217(ADD) va in nodo LOD_218(LOD)
+Node LOD_218(LOD) va in nodo LSR_222(LSR)
+Node LSR_222(LSR) va in nodo AND_224(AND)
+Node AND_224(AND) va in nodo STR_230(STR)
+Node ADD_229(ADD) va in nodo STR_230(STR)
+Node ADD_232(ADD) va in nodo LOD_233(LOD)
+Node LOD_233(LOD) va in nodo LSR_237(LSR)
+Node LSR_237(LSR) va in nodo AND_239(AND)
+Node AND_239(AND) va in nodo STR_245(STR)
+Node ADD_244(ADD) va in nodo STR_245(STR)
+Node ADD_250(ADD) va in nodo STR_251(STR)
+Node ADD_256(ADD) va in nodo STR_257(STR)
+Node AND_259(AND) va in nodo STR_265(STR)
+Node ADD_264(ADD) va in nodo STR_265(STR)
+Node ASR_267(ASR) va in nodo AND_269(AND)
+Node AND_269(AND) va in nodo STR_275(STR)
+Node ADD_274(ADD) va in nodo STR_275(STR)
+Node ADD_277(ADD) va in nodo LOD_278(LOD)
+Node LOD_278(LOD) va in nodo BNE_282(BNE)
+
+NODE
+
+0) Node: MUL_3(0) - Operation: MUL - Next node:   ADD_4 
+1) Node: ADD_4(1) - Operation: ADD - Dependecies: MUL_3  - Next node:   ADD_18 AND_83 ASR_91 ASR_101 ASR_111 
+2) Node: ADD_8(2) - Operation: ADD - Next node:   LOD_9 
+3) Node: LOD_9(3) - Operation: LOD - Dependecies: ADD_8  - Next node:   MUL_17 
+4) Node: ADD_13(4) - Operation: ADD - Next node:   LOD_14 
+5) Node: LOD_14(5) - Operation: LOD - Dependecies: ADD_13  - Next node:   MUL_17 
+6) Node: MUL_17(6) - Operation: MUL - Dependecies: LOD_9 LOD_14  - Next node:   ADD_18 
+7) Node: ADD_18(7) - Operation: ADD - Dependecies: ADD_4 MUL_17  - Next node:   AND_45 ASR_53 ASR_63 ASR_73 
+8) Node: ADD_36(8) - Operation: ADD - Next node:   STR_37 
+9) Node: STR_37(9) - Operation: STR - Dependecies: ADD_36 
+10) Node: ADD_42(10) - Operation: ADD - Next node:   STR_43 
+11) Node: STR_43(11) - Operation: STR - Dependecies: ADD_42 
+12) Node: AND_45(12) - Operation: AND - Dependecies: ADD_18  - Next node:   STR_51 
+13) Node: ADD_50(13) - Operation: ADD - Next node:   STR_51 
+14) Node: STR_51(14) - Operation: STR - Dependecies: AND_45 ADD_50 
+15) Node: ASR_53(15) - Operation: ASR - Dependecies: ADD_18  - Next node:   AND_55 
+16) Node: AND_55(16) - Operation: AND - Dependecies: ASR_53  - Next node:   STR_61 
+17) Node: ADD_60(17) - Operation: ADD - Next node:   STR_61 
+18) Node: STR_61(18) - Operation: STR - Dependecies: AND_55 ADD_60 
+19) Node: ASR_63(19) - Operation: ASR - Dependecies: ADD_18  - Next node:   AND_65 
+20) Node: AND_65(20) - Operation: AND - Dependecies: ASR_63  - Next node:   STR_71 
+21) Node: ADD_70(21) - Operation: ADD - Next node:   STR_71 
+22) Node: STR_71(22) - Operation: STR - Dependecies: AND_65 ADD_70 
+23) Node: ASR_73(23) - Operation: ASR - Dependecies: ADD_18  - Next node:   AND_75 
+24) Node: AND_75(24) - Operation: AND - Dependecies: ASR_73  - Next node:   STR_81 
+25) Node: ADD_80(25) - Operation: ADD - Next node:   STR_81 
+26) Node: STR_81(26) - Operation: STR - Dependecies: AND_75 ADD_80 
+27) Node: AND_83(27) - Operation: AND - Dependecies: ADD_4  - Next node:   STR_89 
+28) Node: ADD_88(28) - Operation: ADD - Next node:   STR_89 
+29) Node: STR_89(29) - Operation: STR - Dependecies: AND_83 ADD_88 
+30) Node: ASR_91(30) - Operation: ASR - Dependecies: ADD_4  - Next node:   AND_93 
+31) Node: AND_93(31) - Operation: AND - Dependecies: ASR_91  - Next node:   STR_99 
+32) Node: ADD_98(32) - Operation: ADD - Next node:   STR_99 
+33) Node: STR_99(33) - Operation: STR - Dependecies: AND_93 ADD_98 
+34) Node: ASR_101(34) - Operation: ASR - Dependecies: ADD_4  - Next node:   AND_103 
+35) Node: AND_103(35) - Operation: AND - Dependecies: ASR_101  - Next node:   STR_109 
+36) Node: ADD_108(36) - Operation: ADD - Next node:   STR_109 
+37) Node: STR_109(37) - Operation: STR - Dependecies: AND_103 ADD_108 
+38) Node: ASR_111(38) - Operation: ASR - Dependecies: ADD_4  - Next node:   AND_113 
+39) Node: AND_113(39) - Operation: AND - Dependecies: ASR_111  - Next node:   STR_119 
+40) Node: ADD_118(40) - Operation: ADD - Next node:   STR_119 
+41) Node: STR_119(41) - Operation: STR - Dependecies: AND_113 ADD_118 
+42) Node: ADD_124(42) - Operation: ADD - Next node:   STR_125 
+43) Node: STR_125(43) - Operation: STR - Dependecies: ADD_124 
+44) Node: ADD_130(44) - Operation: ADD - Next node:   STR_131 
+45) Node: STR_131(45) - Operation: STR - Dependecies: ADD_130 
+46) Node: ADD_133(46) - Operation: ADD - Next node:   LOD_134 
+47) Node: LOD_134(47) - Operation: LOD - Dependecies: ADD_133  - Next node:   AND_137 
+48) Node: AND_137(48) - Operation: AND - Dependecies: LOD_134  - Next node:   STR_143 
+49) Node: ADD_142(49) - Operation: ADD - Next node:   STR_143 
+50) Node: STR_143(50) - Operation: STR - Dependecies: AND_137 ADD_142 
+51) Node: ADD_145(51) - Operation: ADD - Next node:   LOD_146 
+52) Node: LOD_146(52) - Operation: LOD - Dependecies: ADD_145  - Next node:   LSR_150 
+53) Node: LSR_150(53) - Operation: LSR - Dependecies: LOD_146  - Next node:   AND_152 
+54) Node: AND_152(54) - Operation: AND - Dependecies: LSR_150  - Next node:   STR_158 
+55) Node: ADD_157(55) - Operation: ADD - Next node:   STR_158 
+56) Node: STR_158(56) - Operation: STR - Dependecies: AND_152 ADD_157 
+57) Node: ADD_160(57) - Operation: ADD - Next node:   LOD_161 
+58) Node: LOD_161(58) - Operation: LOD - Dependecies: ADD_160  - Next node:   LSR_165 
+59) Node: LSR_165(59) - Operation: LSR - Dependecies: LOD_161  - Next node:   AND_167 
+60) Node: AND_167(60) - Operation: AND - Dependecies: LSR_165  - Next node:   STR_173 
+61) Node: ADD_172(61) - Operation: ADD - Next node:   STR_173 
+62) Node: STR_173(62) - Operation: STR - Dependecies: AND_167 ADD_172 
+63) Node: ADD_175(63) - Operation: ADD - Next node:   LOD_176 
+64) Node: LOD_176(64) - Operation: LOD - Dependecies: ADD_175  - Next node:   LSR_180 
+65) Node: LSR_180(65) - Operation: LSR - Dependecies: LOD_176  - Next node:   AND_182 
+66) Node: AND_182(66) - Operation: AND - Dependecies: LSR_180  - Next node:   STR_188 
+67) Node: ADD_187(67) - Operation: ADD - Next node:   STR_188 
+68) Node: STR_188(68) - Operation: STR - Dependecies: AND_182 ADD_187 
+69) Node: ADD_190(69) - Operation: ADD - Next node:   LOD_191 
+70) Node: LOD_191(70) - Operation: LOD - Dependecies: ADD_190  - Next node:   AND_194 
+71) Node: AND_194(71) - Operation: AND - Dependecies: LOD_191  - Next node:   STR_200 
+72) Node: ADD_199(72) - Operation: ADD - Next node:   STR_200 
+73) Node: STR_200(73) - Operation: STR - Dependecies: AND_194 ADD_199 
+74) Node: ADD_202(74) - Operation: ADD - Next node:   LOD_203 
+75) Node: LOD_203(75) - Operation: LOD - Dependecies: ADD_202  - Next node:   LSR_207 
+76) Node: LSR_207(76) - Operation: LSR - Dependecies: LOD_203  - Next node:   AND_209 
+77) Node: AND_209(77) - Operation: AND - Dependecies: LSR_207  - Next node:   STR_215 
+78) Node: ADD_214(78) - Operation: ADD - Next node:   STR_215 
+79) Node: STR_215(79) - Operation: STR - Dependecies: AND_209 ADD_214 
+80) Node: ADD_217(80) - Operation: ADD - Next node:   LOD_218 
+81) Node: LOD_218(81) - Operation: LOD - Dependecies: ADD_217  - Next node:   LSR_222 
+82) Node: LSR_222(82) - Operation: LSR - Dependecies: LOD_218  - Next node:   AND_224 
+83) Node: AND_224(83) - Operation: AND - Dependecies: LSR_222  - Next node:   STR_230 
+84) Node: ADD_229(84) - Operation: ADD - Next node:   STR_230 
+85) Node: STR_230(85) - Operation: STR - Dependecies: AND_224 ADD_229 
+86) Node: ADD_232(86) - Operation: ADD - Next node:   LOD_233 
+87) Node: LOD_233(87) - Operation: LOD - Dependecies: ADD_232  - Next node:   LSR_237 
+88) Node: LSR_237(88) - Operation: LSR - Dependecies: LOD_233  - Next node:   AND_239 
+89) Node: AND_239(89) - Operation: AND - Dependecies: LSR_237  - Next node:   STR_245 
+90) Node: ADD_244(90) - Operation: ADD - Next node:   STR_245 
+91) Node: STR_245(91) - Operation: STR - Dependecies: AND_239 ADD_244 
+92) Node: ADD_250(92) - Operation: ADD - Next node:   STR_251 
+93) Node: STR_251(93) - Operation: STR - Dependecies: ADD_250 
+94) Node: ADD_256(94) - Operation: ADD - Next node:   STR_257 
+95) Node: STR_257(95) - Operation: STR - Dependecies: ADD_256 
+96) Node: AND_259(96) - Operation: AND - Next node:   STR_265 
+97) Node: ADD_264(97) - Operation: ADD - Next node:   STR_265 
+98) Node: STR_265(98) - Operation: STR - Dependecies: AND_259 ADD_264 
+99) Node: ASR_267(99) - Operation: ASR - Next node:   AND_269 
+100) Node: AND_269(100) - Operation: AND - Dependecies: ASR_267  - Next node:   STR_275 
+101) Node: ADD_274(101) - Operation: ADD - Next node:   STR_275 
+102) Node: STR_275(102) - Operation: STR - Dependecies: AND_269 ADD_274 
+103) Node: ADD_277(103) - Operation: ADD - Next node:   LOD_278 
+104) Node: LOD_278(104) - Operation: LOD - Dependecies: ADD_277  - Next node:   BNE_282 
+105) Node: BNE_282(105) - Operation: BNE - Dependecies: LOD_278 
+
+RESOURCES
+
+For ADD (USED 1) the node are: ADD_4 ADD_8 ADD_13 ADD_18 ADD_36 ADD_42 ADD_50 ADD_60 ADD_70 ADD_80 ADD_88 ADD_98 ADD_108 ADD_118 ADD_124 ADD_130 ADD_133 ADD_142 ADD_145 ADD_157 ADD_160 ADD_172 ADD_175 ADD_187 ADD_190 ADD_199 ADD_202 ADD_214 ADD_217 ADD_229 ADD_232 ADD_244 ADD_250 ADD_256 ADD_264 ADD_274 ADD_277 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For AND (USED 1) the node are: AND_45 AND_55 AND_65 AND_75 AND_83 AND_93 AND_103 AND_113 AND_137 AND_152 AND_167 AND_182 AND_194 AND_209 AND_224 AND_239 AND_259 AND_269 
+	ID Area Speed
+0)	 3    5    1
+For MUL (USED 1) the node are: MUL_3 MUL_17 
+	ID Area Speed
+0)	 4  100    2
+1)	 5   70    5
+2)	 6   40   10
+For ASR (USED 1) the node are: ASR_53 ASR_63 ASR_73 ASR_91 ASR_101 ASR_111 ASR_267 
+	ID Area Speed
+0)	 7    5    1
+For LSR (USED 1) the node are: LSR_150 LSR_165 LSR_180 LSR_207 LSR_222 LSR_237 
+	ID Area Speed
+0)	 8    5    1
+For LSL (USED 0) the node are: 
+	ID Area Speed
+0)	 9    5    1
+For LOD (USED 1) the node are: LOD_9 LOD_14 LOD_134 LOD_146 LOD_161 LOD_176 LOD_191 LOD_203 LOD_218 LOD_233 LOD_278 
+	ID Area Speed
+0)	10   40    1
+1)	11   20    2
+2)	12   10    5
+For STR (USED 1) the node are: STR_37 STR_43 STR_51 STR_61 STR_71 STR_81 STR_89 STR_99 STR_109 STR_119 STR_125 STR_131 STR_143 STR_158 STR_173 STR_188 STR_200 STR_215 STR_230 STR_245 STR_251 STR_257 STR_265 STR_275 
+	ID Area Speed
+0)	13   40    1
+1)	14   20    2
+2)	15   10    5
+For SUB (USED 0) the node are: 
+	ID Area Speed
+0)	16   40    1
+1)	17   20    2
+2)	18   10    5
+For BNE (USED 1) the node are: BNE_282 
+	ID Area Speed
+0)	19    6    1
+For BGE (USED 0) the node are: 
+	ID Area Speed
+0)	20    6    1
+For NEG (USED 0) the node are: 
+	ID Area Speed
+0)	21   25    1
+For DIV (USED 0) the node are: 
+	ID Area Speed
+0)	22  300    6
+1)	23  200   10
+2)	24  150   22
+For REG (USED 0) the node are: 
+	ID Area Speed
+0)	25   21    1
+For MUX21 (USED 0) the node are: 
+	ID Area Speed
+0)	26    3    1
+
+
+NODE to GPU
+
+0) Node: MUL_3(0) - Operation: MUL(2) - Next node:   ADD_4 
+1) Node: ADD_4(1) - Operation: ADD(0) - Dependecies: MUL_3  - Next node:   ADD_18 AND_83 ASR_91 ASR_101 ASR_111 
+2) Node: ADD_8(2) - Operation: ADD(0) - Next node:   LOD_9 
+3) Node: LOD_9(3) - Operation: LOD(5) - Dependecies: ADD_8  - Next node:   MUL_17 
+4) Node: ADD_13(4) - Operation: ADD(0) - Next node:   LOD_14 
+5) Node: LOD_14(5) - Operation: LOD(5) - Dependecies: ADD_13  - Next node:   MUL_17 
+6) Node: MUL_17(6) - Operation: MUL(2) - Dependecies: LOD_9 LOD_14  - Next node:   ADD_18 
+7) Node: ADD_18(7) - Operation: ADD(0) - Dependecies: ADD_4 MUL_17  - Next node:   AND_45 ASR_53 ASR_63 ASR_73 
+8) Node: ADD_36(8) - Operation: ADD(0) - Next node:   STR_37 
+9) Node: STR_37(9) - Operation: STR(6) - Dependecies: ADD_36 
+10) Node: ADD_42(10) - Operation: ADD(0) - Next node:   STR_43 
+11) Node: STR_43(11) - Operation: STR(6) - Dependecies: ADD_42 
+12) Node: AND_45(12) - Operation: AND(1) - Dependecies: ADD_18  - Next node:   STR_51 
+13) Node: ADD_50(13) - Operation: ADD(0) - Next node:   STR_51 
+14) Node: STR_51(14) - Operation: STR(6) - Dependecies: AND_45 ADD_50 
+15) Node: ASR_53(15) - Operation: ASR(3) - Dependecies: ADD_18  - Next node:   AND_55 
+16) Node: AND_55(16) - Operation: AND(1) - Dependecies: ASR_53  - Next node:   STR_61 
+17) Node: ADD_60(17) - Operation: ADD(0) - Next node:   STR_61 
+18) Node: STR_61(18) - Operation: STR(6) - Dependecies: AND_55 ADD_60 
+19) Node: ASR_63(19) - Operation: ASR(3) - Dependecies: ADD_18  - Next node:   AND_65 
+20) Node: AND_65(20) - Operation: AND(1) - Dependecies: ASR_63  - Next node:   STR_71 
+21) Node: ADD_70(21) - Operation: ADD(0) - Next node:   STR_71 
+22) Node: STR_71(22) - Operation: STR(6) - Dependecies: AND_65 ADD_70 
+23) Node: ASR_73(23) - Operation: ASR(3) - Dependecies: ADD_18  - Next node:   AND_75 
+24) Node: AND_75(24) - Operation: AND(1) - Dependecies: ASR_73  - Next node:   STR_81 
+25) Node: ADD_80(25) - Operation: ADD(0) - Next node:   STR_81 
+26) Node: STR_81(26) - Operation: STR(6) - Dependecies: AND_75 ADD_80 
+27) Node: AND_83(27) - Operation: AND(1) - Dependecies: ADD_4  - Next node:   STR_89 
+28) Node: ADD_88(28) - Operation: ADD(0) - Next node:   STR_89 
+29) Node: STR_89(29) - Operation: STR(6) - Dependecies: AND_83 ADD_88 
+30) Node: ASR_91(30) - Operation: ASR(3) - Dependecies: ADD_4  - Next node:   AND_93 
+31) Node: AND_93(31) - Operation: AND(1) - Dependecies: ASR_91  - Next node:   STR_99 
+32) Node: ADD_98(32) - Operation: ADD(0) - Next node:   STR_99 
+33) Node: STR_99(33) - Operation: STR(6) - Dependecies: AND_93 ADD_98 
+34) Node: ASR_101(34) - Operation: ASR(3) - Dependecies: ADD_4  - Next node:   AND_103 
+35) Node: AND_103(35) - Operation: AND(1) - Dependecies: ASR_101  - Next node:   STR_109 
+36) Node: ADD_108(36) - Operation: ADD(0) - Next node:   STR_109 
+37) Node: STR_109(37) - Operation: STR(6) - Dependecies: AND_103 ADD_108 
+38) Node: ASR_111(38) - Operation: ASR(3) - Dependecies: ADD_4  - Next node:   AND_113 
+39) Node: AND_113(39) - Operation: AND(1) - Dependecies: ASR_111  - Next node:   STR_119 
+40) Node: ADD_118(40) - Operation: ADD(0) - Next node:   STR_119 
+41) Node: STR_119(41) - Operation: STR(6) - Dependecies: AND_113 ADD_118 
+42) Node: ADD_124(42) - Operation: ADD(0) - Next node:   STR_125 
+43) Node: STR_125(43) - Operation: STR(6) - Dependecies: ADD_124 
+44) Node: ADD_130(44) - Operation: ADD(0) - Next node:   STR_131 
+45) Node: STR_131(45) - Operation: STR(6) - Dependecies: ADD_130 
+46) Node: ADD_133(46) - Operation: ADD(0) - Next node:   LOD_134 
+47) Node: LOD_134(47) - Operation: LOD(5) - Dependecies: ADD_133  - Next node:   AND_137 
+48) Node: AND_137(48) - Operation: AND(1) - Dependecies: LOD_134  - Next node:   STR_143 
+49) Node: ADD_142(49) - Operation: ADD(0) - Next node:   STR_143 
+50) Node: STR_143(50) - Operation: STR(6) - Dependecies: AND_137 ADD_142 
+51) Node: ADD_145(51) - Operation: ADD(0) - Next node:   LOD_146 
+52) Node: LOD_146(52) - Operation: LOD(5) - Dependecies: ADD_145  - Next node:   LSR_150 
+53) Node: LSR_150(53) - Operation: LSR(4) - Dependecies: LOD_146  - Next node:   AND_152 
+54) Node: AND_152(54) - Operation: AND(1) - Dependecies: LSR_150  - Next node:   STR_158 
+55) Node: ADD_157(55) - Operation: ADD(0) - Next node:   STR_158 
+56) Node: STR_158(56) - Operation: STR(6) - Dependecies: AND_152 ADD_157 
+57) Node: ADD_160(57) - Operation: ADD(0) - Next node:   LOD_161 
+58) Node: LOD_161(58) - Operation: LOD(5) - Dependecies: ADD_160  - Next node:   LSR_165 
+59) Node: LSR_165(59) - Operation: LSR(4) - Dependecies: LOD_161  - Next node:   AND_167 
+60) Node: AND_167(60) - Operation: AND(1) - Dependecies: LSR_165  - Next node:   STR_173 
+61) Node: ADD_172(61) - Operation: ADD(0) - Next node:   STR_173 
+62) Node: STR_173(62) - Operation: STR(6) - Dependecies: AND_167 ADD_172 
+63) Node: ADD_175(63) - Operation: ADD(0) - Next node:   LOD_176 
+64) Node: LOD_176(64) - Operation: LOD(5) - Dependecies: ADD_175  - Next node:   LSR_180 
+65) Node: LSR_180(65) - Operation: LSR(4) - Dependecies: LOD_176  - Next node:   AND_182 
+66) Node: AND_182(66) - Operation: AND(1) - Dependecies: LSR_180  - Next node:   STR_188 
+67) Node: ADD_187(67) - Operation: ADD(0) - Next node:   STR_188 
+68) Node: STR_188(68) - Operation: STR(6) - Dependecies: AND_182 ADD_187 
+69) Node: ADD_190(69) - Operation: ADD(0) - Next node:   LOD_191 
+70) Node: LOD_191(70) - Operation: LOD(5) - Dependecies: ADD_190  - Next node:   AND_194 
+71) Node: AND_194(71) - Operation: AND(1) - Dependecies: LOD_191  - Next node:   STR_200 
+72) Node: ADD_199(72) - Operation: ADD(0) - Next node:   STR_200 
+73) Node: STR_200(73) - Operation: STR(6) - Dependecies: AND_194 ADD_199 
+74) Node: ADD_202(74) - Operation: ADD(0) - Next node:   LOD_203 
+75) Node: LOD_203(75) - Operation: LOD(5) - Dependecies: ADD_202  - Next node:   LSR_207 
+76) Node: LSR_207(76) - Operation: LSR(4) - Dependecies: LOD_203  - Next node:   AND_209 
+77) Node: AND_209(77) - Operation: AND(1) - Dependecies: LSR_207  - Next node:   STR_215 
+78) Node: ADD_214(78) - Operation: ADD(0) - Next node:   STR_215 
+79) Node: STR_215(79) - Operation: STR(6) - Dependecies: AND_209 ADD_214 
+80) Node: ADD_217(80) - Operation: ADD(0) - Next node:   LOD_218 
+81) Node: LOD_218(81) - Operation: LOD(5) - Dependecies: ADD_217  - Next node:   LSR_222 
+82) Node: LSR_222(82) - Operation: LSR(4) - Dependecies: LOD_218  - Next node:   AND_224 
+83) Node: AND_224(83) - Operation: AND(1) - Dependecies: LSR_222  - Next node:   STR_230 
+84) Node: ADD_229(84) - Operation: ADD(0) - Next node:   STR_230 
+85) Node: STR_230(85) - Operation: STR(6) - Dependecies: AND_224 ADD_229 
+86) Node: ADD_232(86) - Operation: ADD(0) - Next node:   LOD_233 
+87) Node: LOD_233(87) - Operation: LOD(5) - Dependecies: ADD_232  - Next node:   LSR_237 
+88) Node: LSR_237(88) - Operation: LSR(4) - Dependecies: LOD_233  - Next node:   AND_239 
+89) Node: AND_239(89) - Operation: AND(1) - Dependecies: LSR_237  - Next node:   STR_245 
+90) Node: ADD_244(90) - Operation: ADD(0) - Next node:   STR_245 
+91) Node: STR_245(91) - Operation: STR(6) - Dependecies: AND_239 ADD_244 
+92) Node: ADD_250(92) - Operation: ADD(0) - Next node:   STR_251 
+93) Node: STR_251(93) - Operation: STR(6) - Dependecies: ADD_250 
+94) Node: ADD_256(94) - Operation: ADD(0) - Next node:   STR_257 
+95) Node: STR_257(95) - Operation: STR(6) - Dependecies: ADD_256 
+96) Node: AND_259(96) - Operation: AND(1) - Next node:   STR_265 
+97) Node: ADD_264(97) - Operation: ADD(0) - Next node:   STR_265 
+98) Node: STR_265(98) - Operation: STR(6) - Dependecies: AND_259 ADD_264 
+99) Node: ASR_267(99) - Operation: ASR(3) - Next node:   AND_269 
+100) Node: AND_269(100) - Operation: AND(1) - Dependecies: ASR_267  - Next node:   STR_275 
+101) Node: ADD_274(101) - Operation: ADD(0) - Next node:   STR_275 
+102) Node: STR_275(102) - Operation: STR(6) - Dependecies: AND_269 ADD_274 
+103) Node: ADD_277(103) - Operation: ADD(0) - Next node:   LOD_278 
+104) Node: LOD_278(104) - Operation: LOD(5) - Dependecies: ADD_277  - Next node:   BNE_282 
+105) Node: BNE_282(105) - Operation: BNE(7) - Dependecies: LOD_278 
+
+RESOURCES to GPU
+
+For ADD(0) the node are: ADD_4 ADD_8 ADD_13 ADD_18 ADD_36 ADD_42 ADD_50 ADD_60 ADD_70 ADD_80 ADD_88 ADD_98 ADD_108 ADD_118 ADD_124 ADD_130 ADD_133 ADD_142 ADD_145 ADD_157 ADD_160 ADD_172 ADD_175 ADD_187 ADD_190 ADD_199 ADD_202 ADD_214 ADD_217 ADD_229 ADD_232 ADD_244 ADD_250 ADD_256 ADD_264 ADD_274 ADD_277 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For AND(1) the node are: AND_45 AND_55 AND_65 AND_75 AND_83 AND_93 AND_103 AND_113 AND_137 AND_152 AND_167 AND_182 AND_194 AND_209 AND_224 AND_239 AND_259 AND_269 
+	ID Area Speed
+0)	 3    5    1
+For MUL(2) the node are: MUL_3 MUL_17 
+	ID Area Speed
+0)	 4  100    2
+1)	 5   70    5
+2)	 6   40   10
+For ASR(3) the node are: ASR_53 ASR_63 ASR_73 ASR_91 ASR_101 ASR_111 ASR_267 
+	ID Area Speed
+0)	 7    5    1
+For LSR(4) the node are: LSR_150 LSR_165 LSR_180 LSR_207 LSR_222 LSR_237 
+	ID Area Speed
+0)	 8    5    1
+For LOD(5) the node are: LOD_9 LOD_14 LOD_134 LOD_146 LOD_161 LOD_176 LOD_191 LOD_203 LOD_218 LOD_233 LOD_278 
+	ID Area Speed
+0)	 9   40    1
+1)	10   20    2
+2)	11   10    5
+For STR(6) the node are: STR_37 STR_43 STR_51 STR_61 STR_71 STR_81 STR_89 STR_99 STR_109 STR_119 STR_125 STR_131 STR_143 STR_158 STR_173 STR_188 STR_200 STR_215 STR_230 STR_245 STR_251 STR_257 STR_265 STR_275 
+	ID Area Speed
+0)	12   40    1
+1)	13   20    2
+2)	14   10    5
+For BNE(7) the node are: BNE_282 
+	ID Area Speed
+0)	15    6    1
+
+Number of possi

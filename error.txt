@@ -1,0 +1,480 @@
+========= CUDA-MEMCHECK
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaStreamCreateWithFlags. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x38e28]
+=========     Host Frame:./a.out [0xa39c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba44]
+=========     Host Frame:./a.out [0xa3cc]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa3f8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa440]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4a8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4d8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa508]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa56c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa59c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa440]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4a8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4d8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa508]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa56c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa59c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa440]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4a8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa4d8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa508]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa56c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa59c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba8c]
+=========     Host Frame:./a.out [0xa5cc]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa5f8]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa63c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6d0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa63c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6d0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa63c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6d0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa63c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6d0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa63c]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are buSTART reading operations
+START reading nodes
+0 A1 ADD
+1 A2 ADD
+2 A3 MUL
+3 A4 ADD
+4 A5 DIV
+START reading edge
+Node A1(ADD) va in nodo A3(MUL)
+Node A2(ADD) va in nodo A3(MUL)
+Node A1(ADD) va in nodo A4(ADD)
+Node A2(ADD) va in nodo A4(ADD)
+Node A3(MUL) va in nodo A5(DIV)
+Node A4(ADD) va in nodo A5(DIV)
+
+NODE
+
+0) Node: A1(0) - Operation: ADD - Next node:   A3 A4 
+1) Node: A2(1) - Operation: ADD - Next node:   A3 A4 
+2) Node: A3(2) - Operation: MUL - Dependecies: A1 A2  - Next node:   A5 
+3) Node: A4(3) - Operation: ADD - Dependecies: A1 A2  - Next node:   A5 
+4) Node: A5(4) - Operation: DIV - Dependecies: A3 A4 
+
+RESOURCES
+
+For ADD (USED 1) the node are: A1 A2 A4 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For AND (USED 0) the node are: 
+	ID Area Speed
+0)	 3    5    1
+For MUL (USED 1) the node are: A3 
+	ID Area Speed
+0)	 4  100    2
+1)	 5   70    5
+2)	 6   40   10
+For ASR (USED 0) the node are: 
+	ID Area Speed
+0)	 7    5    1
+For LSR (USED 0) the node are: 
+	ID Area Speed
+0)	 8    5    1
+For LSL (USED 0) the node are: 
+	ID Area Speed
+0)	 9    5    1
+For LOD (USED 0) the node are: 
+	ID Area Speed
+0)	10   40    1
+1)	11   20    2
+2)	12   10    5
+For STR (USED 0) the node are: 
+	ID Area Speed
+0)	13   40    1
+1)	14   20    2
+2)	15   10    5
+For SUB (USED 0) the node are: 
+	ID Area Speed
+0)	16   40    1
+1)	17   20    2
+2)	18   10    5
+For BNE (USED 0) the node are: 
+	ID Area Speed
+0)	19    6    1
+For BGE (USED 0) the node are: 
+	ID Area Speed
+0)	20    6    1
+For NEG (USED 0) the node are: 
+	ID Area Speed
+0)	21   25    1
+For DIV (USED 1) the node are: A5 
+	ID Area Speed
+0)	22  300    6
+1)	23  200   10
+2)	24  150   22
+For REG (USED 0) the node are: 
+	ID Area Speed
+0)	25   21    1
+For MUX21 (USED 0) the node are: 
+	ID Area Speed
+0)	26    3    1
+
+
+NODE to GPU
+
+0) Node: A1(0) - Operation: ADD(0) - Next node:   A3 A4 
+1) Node: A2(1) - Operation: ADD(0) - Next node:   A3 A4 
+2) Node: A3(2) - Operation: MUL(1) - Dependecies: A1 A2  - Next node:   A5 
+3) Node: A4(3) - Operation: ADD(0) - Dependecies: A1 A2  - Next node:   A5 
+4) Node: A5(4) - Operation: DIV(2) - Dependecies: A3 A4 
+
+RESOURCES to GPU
+
+For ADD(0) the node are: A1 A2 A4 
+	ID Area Speed
+0)	 0   40    1
+1)	 1   20    2
+2)	 2   10    5
+For MUL(1) the node are: A3 
+	ID Area Speed
+0)	 3  100    2
+1)	 4   70    5
+2)	 5   40   10
+For DIV(2) the node are: A5 
+	ID Area Speed
+0)	 6  300    6
+1)	 7  200   10
+2)	 8  150   22
+
+Number of possible resource is 9
+k min is 3 and k max is 9
+Offset shared memory is 240
+
+Number of total combination witk k equal to 3 are: 84 -- thread are 2268
+Piece of shared memory is 86 bytes
+ERROR : all CUDA-capable devices are busy or unavailable
+sy or unavailable" on CUDA API call to cudaMemcpy. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x490fc]
+=========     Host Frame:./a.out [0xa6d0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xbab0]
+=========     Host Frame:./a.out [0xa7a0]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xbab0]
+=========     Host Frame:./a.out [0xa7ac]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa7d4]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaMalloc. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3cf6c]
+=========     Host Frame:./a.out [0xba68]
+=========     Host Frame:./a.out [0xa808]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= Program hit cudaErrorDevicesUnavailable (error 46) due to "all CUDA-capable devices are busy or unavailable" on CUDA API call to cudaGetLastError. 
+=========     Saved host backtrace up to driver entry point at error
+=========     Host Frame:/usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 [0x2fdb04]
+=========     Host Frame:./a.out [0x3776c]
+=========     Host Frame:./a.out [0xaa38]
+=========     Host Frame:/lib/aarch64-linux-gnu/libc.so.6 (__libc_start_main + 0xe0) [0x20720]
+=========     Host Frame:./a.out [0x8600]
+=========
+========= ERROR SUMMARY: 43 errors

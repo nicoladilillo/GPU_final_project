@@ -1,0 +1,20 @@
+--------------------------------------------------
+Start local time and date: Wed Jul 21 21:51:32 2021
+
+End local time and date: Wed Jul 21 22:15:38 2021
+
+DFG is h2v2.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 500
+--------------------------------------------------
+
+Best solution has time 17:
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  3
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ASR - ID RESOURCE:  6 - SPEED:  1 - AREA:  5 - OCCURENCY:  1
+	OPERATION:  LOD - ID RESOURCE:  7 - SPEED:  1 - AREA: 40 - OCCURENCY:  3
+	OPERATION:  STR - ID RESOURCE: 10 - SPEED:  1 - AREA: 40 - OCCURENCY:  1
+Final area is 385
+
+The elapsed time is 1446 seconds
+
