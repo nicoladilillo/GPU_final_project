@@ -1,5 +1,5 @@
 CC=gcc
-NVCC=
+NVCC=nvcc
 
 clean: 
 	rm *.out
