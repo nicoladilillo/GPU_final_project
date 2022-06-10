@@ -13,14 +13,14 @@
  #include <stdio.h>
  #include "dfg.h"
 
-#define MAX_BLOCKS  10
+#define MAX_BLOCKS  40
 #define MAX_THREADS 1024
 #define MAX_SHARED_MEMORY 49152
-#define MAX_NODE 120
+#define MAX_NODE 100
 #define MAX_RESOURCES 16
 
 // #define TESTING_OP_AND_NODE
-// #define TESTING
+// s#define TESTING
 // #define TESTING_MEMORY
 // #define TESTING_SCHEDULING
 
@@ -55,12 +55,13 @@
  } // Choose()
  
  // diaplay combination with given index
- __global__ void combination(const int n, int r, const unsigned int tot_comb, const unsigned int start_comb, const unsigned int end_comb,
+ __global__ void combination(const int n, int r, const unsigned int tot_comb, const unsigned int start_comb_app, const unsigned int end_comb,
     int const shared_memory_size, int const shared_memory_size_offset, int const max_rep, int const factor,
     const operation_GPU_t *Operation_init, const int operation_number, const node_GPU_t *node_init,
-    const int node_number, const int area_limit, const uint8_t resources_number, uint8_t *final_best_combination,
+    const int node_number, const int area_limit_app, const uint8_t resources_number, uint8_t *final_best_combination,
     uint8_t *final_best_repetition, int *final_best_time, int *final_area_calculated, const int best_time, const int area_calculated)
  {
+    const unsigned int start_comb = start_comb_app;
     int idx = threadIdx.x + start_comb;
     
     if (idx >= start_comb && idx < end_comb) {
@@ -70,7 +71,9 @@
 
         int i, j, z;
 
-        int k_comb = r;
+        const int k_comb = r;
+        const int area_limit = area_limit_app;
+        const int diff_comb = end_comb-start_comb;
         int area = 0;
         int time = -1;
         
@@ -80,6 +83,7 @@
         node_GPU_t *node;
         operation_GPU_t *Operation;
 
+        // offset between group of array thread
         unsigned long memory_trace = 0;
 
         node = (node_GPU_t *) &(s[memory_trace]);
@@ -89,19 +93,17 @@
         
         // from shared memory, one for each thread, give the right result
         int *final_time = (int *) &(s[memory_trace]);
-        memory_trace += (int) ((end_comb-start_comb)*sizeof(int));            
+        memory_trace += (int) ((diff_comb)*sizeof(int));            
         int *final_area = (int *) &(s[memory_trace]);
-        memory_trace += (int) ((end_comb-start_comb)*sizeof(int));
+        memory_trace += (int) ((diff_comb)*sizeof(int));
         uint8_t *final_combination = (uint8_t *) &(s[memory_trace]);
-        memory_trace += (int) (k_comb*(end_comb-start_comb)*sizeof(uint8_t));            
+        memory_trace += (int) (k_comb*(diff_comb)*sizeof(uint8_t));            
         uint8_t *final_repetition = (uint8_t *) &(s[memory_trace]);
-        memory_trace += (int) (k_comb*(end_comb-start_comb)*sizeof(uint8_t));           
+        memory_trace += (int) (k_comb*(diff_comb)*sizeof(uint8_t));           
 
         // use only one instanze for all nodes and operation information
         if (idx == start_comb)
         {
-            // TO_DO: include also the index node and resources
-
             // Copy operations information
             for(i = 0; i < operation_number; i++) 
                 Operation[i] = Operation_init[i];
@@ -222,9 +224,9 @@
             __syncthreads();
             if(idx == i)
             {
-                printf("\t%d) AREA: %d -- COVERED: %d -- ", idx, area, flag);
+                printf("\n\t%d) AREA: %d -- COVERED: %d\n", idx, area, flag);
                 for(j = 0; j < k_comb; j++) 
-                    printf("%2d %2d %d ", resources[j].id, resources[j].occurency, resources[j].index_operation);
+                    printf("\t\t- RES_ID:%2d\n \t\t- RES_OCC%2d\n \t\t- INDEX_OPERATION:%d\n\n ", resources[j].id, resources[j].occurency, resources[j].index_operation);
                 printf("\n");
             }
         }
@@ -235,15 +237,16 @@
         if (area <= area_limit && flag == 1) 
         {
             // variable used from scheduling node
-            // variable used from scheduling node
             uint8_t state[MAX_NODE];
             uint8_t remain_time[MAX_NODE];
             uint8_t id_resource[MAX_NODE];
             uint8_t dependecies_level_satisfy[MAX_NODE];
 
-            // printf("%d is covered with memory from %d to %d -- node number %d -- op %d\n", idx, 
-            //     (int) (shared_memory_size_offset + threadIdx.x*shared_memory_size), (int) memory_trace, node_number, operation_number);
-            // __syncthreads();
+            #ifdef TESTING_MEMORY
+            printf("%d is covered with memory from %d to %d -- node number %d -- op %d\n", idx, 
+                (int) (shared_memory_size_offset + threadIdx.x*shared_memory_size), (int) memory_trace, node_number, operation_number);
+            __syncthreads();
+            #endif
 
             // Set intial node property
             for(i = 0; i < node_number; i++)
@@ -288,7 +291,6 @@
                     // Put some node from idle to executed state
                     if(resources[i].occurency > 0)
                     {
-                        // TO DO 3: improvo exit cycle
                         for(j = 0; j < Operation[resources[i].index_operation].index_next_node_occurency; j++)
                         {
                             index_node = Operation[resources[i].index_operation].index_next_node[j];
@@ -395,9 +397,9 @@
         if(idx == start_comb)
         {
             __syncthreads();
-            for(i = 0; final_time[i] ==  -1 && i < end_comb-start_comb; i++);
+            for(i = 0; final_time[i] ==  -1 && i < diff_comb; i++);
             int best = i;
-            for(; i < end_comb-start_comb; i++)
+            for(; i < diff_comb; i++)
             { 
                 if (final_time[i] > -1 && (final_time[best] > final_time[i]
                     || (final_time[best] == final_time[i] && final_area[best] > final_area[i])))
@@ -758,7 +760,7 @@
     }
 
     // store the value for comparison
-    uint8_t *best_final            = (uint8_t *)malloc(sizeof(uint8_t)*(resource_number+1));   
+    uint8_t *best_final            = (uint8_t *)malloc(sizeof(uint8_t)*(resource_number));   
     uint8_t *best_final_repetition = (uint8_t *)malloc(sizeof(uint8_t)*resource_number);
     int best_time = 0x7fffffff;
     int area_calculated = 0x7fffffff;
@@ -796,23 +798,18 @@
     int end_comb = 0;
     int start_comb = 0;
     int saved_k[max_stream_number];
-    
-    /// to store the execution time of code
+
+    // to store the execution time of code
+    double time_spent = 0.0;
     cudaError_t cuda_error;
 
-    // time information
-    long int start_time;
-    long int time_difference;
-    struct timespec gettime_now;
     time_t rawtime;
     struct tm * timeinfo;
 
-    clock_gettime(CLOCK_REALTIME, &gettime_now);
-    start_time = gettime_now.tv_sec;		//Get nS value
-
     time ( &rawtime );
     timeinfo = localtime ( &rawtime );
-
+ 
+    clock_t begin = clock();
     // how big are the cutset, modify it iteratively
     // for(k = 12; k <= 12; k++) {
     for(k = operation_used; k <= resource_number; k++) {
@@ -834,7 +831,9 @@
             factor *= max_repetition;
         tot_comb *= factor;
         printf("thread are %d -- with factor %d\n", tot_comb, factor);
-        printf("Piece of shared memory is %d bytes\n", shared_memory_size);        
+        #ifdef TESTING_MEMORY
+            printf("Piece of shared memory is %d\n", shared_memory_size);
+        #endif 
 
         end_comb = 0;
         // Go among group of MAX_BLOCKS
@@ -853,10 +852,10 @@
 
             tot_shared_memory = offset_shared_memory_size + (shared_memory_size*threadsPerBlock_d);
 
-            #ifdef TESTING_MEMORY
+            // #ifdef TESTING_MEMORY
             printf("\tStart comb is %d -- end comb is %d -- thread are %d -- sahred memory is %d\n",
                 start_comb, end_comb, threadsPerBlock_d, tot_shared_memory);
-            #endif
+            // #endif
 
             //call kernel
             combination<<<1, threadsPerBlock_d, tot_shared_memory, streams[stream_number]>>>(
@@ -920,10 +919,11 @@
                             
     } // END For k subset
 
+    clock_t end = clock();
+
     // calculate elapsed time by finding difference (end - begin) and
     // dividing the difference by CLOCKS_PER_SEC to convert to seconds
-    clock_gettime(CLOCK_REALTIME, &gettime_now);
-    time_difference = gettime_now.tv_sec - start_time;
+    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
 
     cudaFree(dev_final_best_time);
     cudaFree(dev_final_area_calculated);
@@ -974,8 +974,8 @@
     fprintf(stdout, "Final area is %d\n", area_calculated);
     fprintf(fp, "Final area is %d\n", area_calculated);
   
-    fprintf(stdout, "\nThe elapsed time is %ld seconds\n", time_difference);
-    fprintf(fp,"\nThe elapsed time is %ld seconds\n\n", time_difference);
+    printf("\nThe elapsed time is %f seconds\n", time_spent);
+    fprintf(fp,"\nThe elapsed time is %f seconds\n\n", time_spent);
 
     cudaFree(dev_node);
     cudaFree(dev_Operation);

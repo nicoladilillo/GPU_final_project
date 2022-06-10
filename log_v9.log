@@ -2965,3 +2965,430 @@ Final area is 380
 
 The elapsed time is 0.030703 seconds
 
+--------------------------------------------------
+Current local time and date: Wed Jul 21 22:13:42 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.028234 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 22:34:04 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.035212 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 22:34:38 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.033058 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 22:35:33 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.028354 seconds
+
+--------------------------------------------------
+Current local time and date: Thu Jul 22 01:23:44 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.027344 seconds
+
+--------------------------------------------------
+Current local time and date: Thu Jul 22 01:44:41 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.028574 seconds
+
+--------------------------------------------------
+Current local time and date: Thu Jul 22 01:45:11 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.030737 seconds
+
+--------------------------------------------------
+Current local time and date: Thu Jul 22 01:46:31 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.036626 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 19:54:06 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.033725 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 21:01:36 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.103606 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 21:01:43 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.091707 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 21:26:45 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.088729 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 21:31:42 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.109825 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 21:31:49 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.101587 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 19:56:05 2021
+
+DFG is arf.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 15:
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  3
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 380
+
+The elapsed time is 0.032690 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 19:58:44 2021
+
+DFG is arf.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 15:
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  3
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 380
+
+The elapsed time is 0.037118 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:03:32 2021
+
+DFG is arf.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 15:
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  3
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 380
+
+The elapsed time is 0.011448 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:25:09 2021
+
+DFG is arf.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 15:
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  3
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 380
+
+The elapsed time is 0.009177 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:25:34 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.018181 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:39:52 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.040275 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:39:54 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.022112 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:40:39 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.033910 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:40:40 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 9:
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 480
+
+The elapsed time is 0.033532 seconds
+
+--------------------------------------------------
+Current local time and date: Wed Jul 21 20:45:17 2021
+
+DFG is arf.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+
+Area Limit is 1000
+Best solution has time 15:
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  3
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+Final area is 380
+
+The elapsed time is 0.013645 seconds
+

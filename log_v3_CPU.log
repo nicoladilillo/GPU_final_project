@@ -92,3 +92,21 @@ Final area is 385
 
 The elapsed time is 1318 seconds
 
+--------------------------------------------------
+Start local time and date: Wed Jul 21 22:04:58 2021
+
+End local time and date: Wed Jul 21 22:04:59 2021
+
+DFG is dfg.txt
+Reasources are RTL_resoruces.txt
+Area Limit is 1000
+--------------------------------------------------
+
+Best solution has time 9:
+	OPERATION:  ADD - ID RESOURCE:  0 - SPEED:  1 - AREA: 40 - OCCURENCY:  2
+	OPERATION:  MUL - ID RESOURCE:  3 - SPEED:  2 - AREA: 100 - OCCURENCY:  1
+	OPERATION:  DIV - ID RESOURCE:  6 - SPEED:  6 - AREA: 300 - OCCURENCY:  1
+Final area is 480
+
+The elapsed time is 1 seconds
+
