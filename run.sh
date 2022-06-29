@@ -26,4 +26,5 @@ do
     done
 done
 
+mv *.log log_file
 cd ..
