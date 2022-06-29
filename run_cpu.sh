@@ -8,7 +8,9 @@ area_limit=(
     500
 )
 
-cd result
+cd source
+make all
+cd ../result
 DFG_folder="../DFGs_new/"
 
 dirlist=($(ls ../source/executable/*CPU.out))

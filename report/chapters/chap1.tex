@@ -42,11 +42,11 @@ List scheduling is a greedy algorithm that takes as inputs a list of jobs that s
 To obtain a valid schedule all nodes have to been scheduled in a finite time respected the resources number constraints.
 
 \subsection{Example}
-Let's try to synthesis the following function $F = a*b + a*c$, that is represented by the DFG in figure \ref{fig:DFG}. It's important to note that each node of the DFG is binary, receive at most two inputs, and that each node will be assign to a specific resources in a given instant of time.
+Let's try to synthesis the following function $F = a*b + a*c$, that is represented by the DFG in figure \ref*{fig:DFG}. It's important to note that each node of the DFG is binary, receive at most two inputs, and that each node will be assign to a specific resources in a given instant of time.
 
 \begin{figure}[h]
 \centering
-\includegraphics[height=5cm\textwidth]{report_template/chapters/figures/dfg.png}
+\includegraphics[height=5cm]{chapters/figures/dfg.png}
 \caption{DFG of $F = a*b + a*c$}
 \label{fig:DFG}
 \end{figure}
@@ -55,7 +55,7 @@ Two possible schedules could be picked, like shows in figure \ref{fig:DFG_schedu
  
 \begin{figure}[h]
 \centering
-\includegraphics[height=5cm\textwidth]{report_template/chapters/figures/dfg_scheduled.png}
+\includegraphics[height=5cm]{chapters/figures/dfg_scheduled.png}
 \caption{On the left there is a bigger latency but less resources are used, while on the right a littler latency occur but more resource are used.}
 \label{fig:DFG_schedules}
 \end{figure}
@@ -67,7 +67,7 @@ The following schedules is then convert in hardware, like shows in figure \ref{f
 
 \begin{figure}[h]
 \centering
-\includegraphics[height=6cm\textwidth]{report_template/chapters/figures/HW_scheduling.png}
+\includegraphics[height=6cm]{chapters/figures/HW_scheduling.png}
 \caption{Hardware implementation}
 \label{fig:HW_schedules}
 \end{figure}

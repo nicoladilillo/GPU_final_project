@@ -24,9 +24,41 @@ The complete power set to formulate has an occurrence equal to the sum of all co
 
 Combinadic is a useful technique that, giving and index in the range between 0 and $\binom{n}{k}-1$ , return a unique combination set of k element, produced in lexicographic order.
 
+From a given combination is possible to find the corresponding number $N$, corresponding to 
+$c_k > ... > c_2 > c_1$, according formula \ref{id_Combinadic}.
+ 
+\begin{equation}
+    N = \binom{c_k}{k} + ... + \binom{c_2}{2} + \binom{c_1}{1}
+    \label{id_Combinadic}
+\end{equation}
+
+From number $N$ is more diffucult extract the combination. By the definition of the lexicographic ordering, two k-combinations that 
+differ in their largest element ck will be ordered according to the comparison of those largest elements, from which it follows that all
+combinations with a fixed value of their largest element are contiguous in the list. Moreover the smallest combination with ck as
+the largest element is $\binom {c_{k}}{k}$, and it has $c_i = i - 1$ for all $i < k$ (for this combination all terms 
+in the expression except $\binom {c_{k}}{k}$ are zero). 
+
+Therefore $c_k$ is the largest number such that $\binom {c_{k}}{k} \leq N$. 
+If $k > 1$ the remaining elements of the k-combination form the (k-1)-combination corresponding to the number
+$N - \binom {c_{k}}{k}$ in the combinatorial number system of degree k - 1, and can therefore be found 
+by continuing in the same way for $N - \binom {c_{k}}{k}$ and k - 1 instead of N and k.
+
+\subsection{Example}
+
+Suppose one wants to determine the 5-combination at position 72.
+The successive values of $\binom {n}{5}$ for n = 4, 5, 6, ... are 0, 1, 6, 21, 56, 126, 252, ..., of which the largest 
+one not exceeding 72 is 56, for n = 8. Therefore c5 = 8, and the remaining elements form the 4-combination at position 
+72 - 56 = 16. The successive values of $\binom {n}{4}$ for n = 3, 4, 5, ... are 0, 1, 5, 15, 35, ..., of which the largest
+one not exceeding 16 is 15, for n = 6, so c4 = 6. Continuing similarly to search for a 3-combination at position 16 1 15 = 1
+one finds c3 = 3, which uses up the final unit.
+This establishes $72=\binom{8}{5}+\binom{6}{4}+\binom {3}{3}$, and the remaining values $c_i$ will be the maximal ones with
+$\binom{c_i}{i}=0$, namely $c_i = i - 1$. Thus we have found the 5-combination \{8, 6, 3, 1, 0\}.
+
 \subsection{Combinadic in GPU}
 
-Exploit Combinadic in GPU is pretty immediate. Each thread in GPU has an unique id value that goes from zero to the number of initialize thread minus one. This id could be used to take a specific combination set and then use it to compute all the latency. 
+Exploit Combinadic in GPU is pretty immediate. Each thread in GPU has an unique id value that goes from zero to the number of initialize thread minus one. 
+This id could be used to take a specific combination where each element correspond to an id of a specific resource. 
+
 
 \section{Repetition}
 
