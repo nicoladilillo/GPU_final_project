@@ -5,22 +5,22 @@
  * 
  * single thread care about a single repetition.
  * 
- * Lenght of resources equal to the exact number used
- * 
- * Each single array of shared memory is continuos and execute comparation only
- * in the start thread with idx == 0
+ * Use fix array lenght
+ * Remove operation_covered
+ * Call global memory when best time is really improved
  */
 
  #include <stdio.h>
  #include "dfg.h"
 
-#define MAX_BLOCKS  10
+#define MAX_BLOCKS  40
 #define MAX_THREADS 1024
 #define MAX_SHARED_MEMORY 49152
+#define MAX_NODE 100
 #define MAX_RESOURCES 16
 
 // #define TESTING_OP_AND_NODE
-// #define TESTING
+// s#define TESTING
 // #define TESTING_MEMORY
 // #define TESTING_SCHEDULING
 
@@ -55,12 +55,13 @@
  } // Choose()
  
  // diaplay combination with given index
- __global__ void combination(const int n, int r, const unsigned int tot_comb, const int start_comb, const int end_comb,
+ __global__ void combination(const int n, int r, const unsigned int tot_comb, const unsigned int start_comb_app, const unsigned int end_comb,
     int const shared_memory_size, int const shared_memory_size_offset, int const max_rep, int const factor,
     const operation_GPU_t *Operation_init, const int operation_number, const node_GPU_t *node_init,
     const int node_number, const int area_limit_app, const uint8_t resources_number, uint8_t *final_best_combination,
-    uint8_t *final_best_repetition, int *final_best_time, int *final_area_calculated)
+    uint8_t *final_best_repetition, int *final_best_time, int *final_area_calculated, const int best_time, const int area_calculated)
  {
+    const unsigned int start_comb = start_comb_app;
     int idx = threadIdx.x + start_comb;
     
     if (idx >= start_comb && idx < end_comb) {
@@ -70,11 +71,12 @@
 
         int i, j, z;
 
-        int k_comb = r;
+        const int k_comb = r;
         const int area_limit = area_limit_app;
+        const int diff_comb = end_comb-start_comb;
         int area = 0;
         int time = -1;
-                
+        
         const uint8_t max_repetition = (uint8_t) max_rep;
 
         // This variable can be shared between threads in the same block
@@ -91,13 +93,13 @@
         
         // from shared memory, one for each thread, give the right result
         int *final_time = (int *) &(s[memory_trace]);
-        memory_trace += (int) ((end_comb-start_comb)*sizeof(int));            
+        memory_trace += (int) ((diff_comb)*sizeof(int));            
         int *final_area = (int *) &(s[memory_trace]);
-        memory_trace += (int) ((end_comb-start_comb)*sizeof(int));
+        memory_trace += (int) ((diff_comb)*sizeof(int));
         uint8_t *final_combination = (uint8_t *) &(s[memory_trace]);
-        memory_trace += (int) (k_comb*(end_comb-start_comb)*sizeof(uint8_t));            
+        memory_trace += (int) (k_comb*(diff_comb)*sizeof(uint8_t));            
         uint8_t *final_repetition = (uint8_t *) &(s[memory_trace]);
-        memory_trace += (int) (k_comb*(end_comb-start_comb)*sizeof(uint8_t));           
+        memory_trace += (int) (k_comb*(diff_comb)*sizeof(uint8_t));           
 
         // use only one instanze for all nodes and operation information
         if (idx == start_comb)
@@ -117,22 +119,6 @@
         
         // lenght k_comb
         resource_t resources[MAX_RESOURCES];
-
-        memory_trace += threadIdx.x*shared_memory_size;           
-
-        // lenght operation_number
-        // variable used for operation covered
-        uint8_t *operation_covered = (uint8_t *) &(s[(int) memory_trace]);
-        memory_trace += (((unsigned long) operation_number)*sizeof(uint8_t));
-        
-        // variable used from scheduling node
-        uint8_t *state;
-        uint8_t *remain_time;
-        uint8_t *id_resource;
-        uint8_t *dependecies_level_satisfy; 
-
-        for(i = 0; i < operation_number; i++) 
-            operation_covered[i] = 0;
 
         int a = n;
         int b = k_comb;
@@ -199,7 +185,7 @@
         }
         #endif
 
-        // assign resources and check if resources used cover all operations        
+        // assign resources and check if resources used cover all operations 
         for(z = 0; z < k_comb; z++)
         {
             for(i = 0; i < operation_number; i++)
@@ -210,9 +196,24 @@
                     {
                         resources[z]             = Operation[i].res[j];
                         resources[z].occurency   = (uint8_t) final_repetition[threadIdx.x*k_comb + z];
-                        operation_covered[i]     = (uint8_t) 1;
                         area                    += (resources[z].area * final_repetition[threadIdx.x*k_comb + z]);
                     }
+                }
+            }
+        }
+
+        // check if all operation are covered
+        uint8_t flag;
+        i = 0;
+        for(j = 0; j < operation_number && i < k_comb; j++)
+        {   
+            flag = 0;
+            for(i = 0; i < k_comb; i++)
+            {
+                if(resources[i].index_operation == j)
+                {
+                    flag = 1;
+                    break;
                 }
             }
         }
@@ -223,10 +224,9 @@
             __syncthreads();
             if(idx == i)
             {
-                printf("\t%d) ", idx);
+                printf("\n\t%d) AREA: %d -- COVERED: %d\n", idx, area, flag);
                 for(j = 0; j < k_comb; j++) 
-                    printf("%2d %d A: %3d S: %2d   ", resources[j].id, resources[j].occurency, 
-                        resources[j].area, resources[j].speed);
+                    printf("\t\t- RES_ID:%2d\n \t\t- RES_OCC%2d\n \t\t- INDEX_OPERATION:%d\n\n ", resources[j].id, resources[j].occurency, resources[j].index_operation);
                 printf("\n");
             }
         }
@@ -234,152 +234,135 @@
         #endif
 
         // all others repeated combination will be bigger 
-        uint8_t flag = 0;
-        if (area <= area_limit)
+        if (area <= area_limit && flag == 1) 
         {
-            flag = 1;
-            // work with repetition, with a maximum of area_limit
-            for(i = 0; i < operation_number; i++)
+            // variable used from scheduling node
+            uint8_t state[MAX_NODE];
+            uint8_t remain_time[MAX_NODE];
+            uint8_t id_resource[MAX_NODE];
+            uint8_t dependecies_level_satisfy[MAX_NODE];
+
+            #ifdef TESTING_MEMORY
+            printf("%d is covered with memory from %d to %d -- node number %d -- op %d\n", idx, 
+                (int) (shared_memory_size_offset + threadIdx.x*shared_memory_size), (int) memory_trace, node_number, operation_number);
+            __syncthreads();
+            #endif
+
+            // Set intial node property
+            for(i = 0; i < node_number; i++)
             {
-                if (operation_covered[i] != 1)
-                    flag = 0;
-            } 
-            // initialize if all operation are covered
-            if(flag == 1) 
+                dependecies_level_satisfy[i] = (uint8_t) node[i].dependecies_level;
+                state[i]                     = (uint8_t) Idle;
+            }
+
+            #ifdef TESTING_SCHEDULING
+            if(idx == 1035 && k_comb == 3) {
+                printf("START SCHEDULING WITH: \n");
+                for(i = 0; i < k_comb; i++)
+                    printf("\t%d %d\n", final_combination[threadIdx.x*k_comb+i], final_repetition[threadIdx.x*k_comb+i]);
+                printf("\n");
+
+                printf("RESOURCES: \n");
+                for(i = 0; i < k_comb; i++)
+                    printf("\t%d %d %d %d %d\n", resources[i].id,  resources[i].area,  resources[i].speed, resources[i].occurency, resources[i].index_operation);
+                printf("\n");
+            }
+            #endif
+
+            uint8_t index_node;
+            while (flag)
             {
-                // variable used from scheduling node
-                state         = (uint8_t *) &(s[(int) memory_trace]);
-                memory_trace += (((unsigned long) node_number)*sizeof(uint8_t));
-                remain_time   = (uint8_t *) &(s[(int) memory_trace]);
-                memory_trace += (((unsigned long) node_number)*sizeof(uint8_t));
-                id_resource   = (uint8_t *) &(s[(int) memory_trace]);
-                memory_trace += (((unsigned long) node_number)*sizeof(uint8_t));
-                dependecies_level_satisfy = (uint8_t *) &(s[(int) memory_trace]);
-                memory_trace += (((unsigned long) node_number)*sizeof(uint8_t));
-
-                #ifdef TESTING_MEMORY
-                printf("%d is covered with memory from %d to %d -- node number %d -- op %d\n", idx, 
-                    (int) (shared_memory_size_offset + threadIdx.x*shared_memory_size), (int) memory_trace, node_number, operation_number);
-                __syncthreads();
-                #endif
-
-                // Set intial node property
-                for(i = 0; i < node_number; i++)
-                {
-                    dependecies_level_satisfy[i] = (uint8_t) node[i].dependecies_level;
-                    state[i]                     = (uint8_t) Idle;
-                }
-
                 #ifdef TESTING_SCHEDULING
                 if(idx == 1035 && k_comb == 3) {
-                    printf("START SCHEDULING WITH: \n");
-                    for(i = 0; i < k_comb; i++)
-                        printf("\t%d %d\n", final_combination[threadIdx.x*k_comb+i], final_repetition[threadIdx.x*k_comb+i]);
-                    printf("\n");
-
-                    printf("RESOURCES: \n");
-                    for(i = 0; i < k_comb; i++)
-                        printf("\t%d %d %d %d %d\n", resources[i].id,  resources[i].area,  resources[i].speed, resources[i].occurency, resources[i].index_operation);
-                    printf("\n");
+                    printf("START time %d\n", time+1);
+                    printf("See IDLE node\n");
                 }
                 #endif
-
-                uint8_t index_node;
-                while (flag)
+                flag = 0;
+                // check between all operation and find node that can be scheduled or that are in execution, 
+                // in case you find nothing this means that all nodes hande been scheduled
+                for(i = 0; i < k_comb; i++) 
                 {
                     #ifdef TESTING_SCHEDULING
                     if(idx == 1035 && k_comb == 3) {
-                        printf("START time %d\n", time+1);
-                        printf("See IDLE node\n");
+                        printf("res %d - op %d - occ %d\n", final_combination[threadIdx.x*k_comb+i], resources[i].index_operation, resources[i].occurency);
                     }
                     #endif
-                    flag = 0;
-                    // check between all operation and find node that can be scheduled or that are in execution, 
-                    // in case you find nothing this means that all nodes hande been scheduled
-                    for(i = 0; i < k_comb; i++) 
-                    {
-                        #ifdef TESTING_SCHEDULING
-                        if(idx == 1035 && k_comb == 3) {
-                            printf("res %d - op %d - occ %d\n", final_combination[threadIdx.x*k_comb+i], resources[i].index_operation, resources[i].occurency);
-                        }
-                        #endif
-                        // Put some node from idle to executed state
-                        if(resources[i].occurency > 0)
-                        {
-                            // TO DO 3: improvo exit cycle
-                            for(j = 0; j < Operation[resources[i].index_operation].index_next_node_occurency; j++)
-                            {
-                                index_node = Operation[resources[i].index_operation].index_next_node[j];
-                                // Check if exist a node that has parents scheduled and is in Idle state
-                                if(dependecies_level_satisfy[index_node] == 0 && state[index_node] == Idle)
-                                {
-                                    flag = 1;
-                                    // Associate the resources to the node and decrease the occurency
-                                    remain_time[index_node] =  (uint8_t) resources[i].speed;
-                                    id_resource[index_node] =  (uint8_t) i;
-                                    state[index_node]       =  (uint8_t) Execution;                               
-                                    resources[i].occurency--;
-                                    #ifdef TESTING_SCHEDULING
-                                    if(idx == 1035 && k_comb == 3) {
-                                        printf("Scheduling node %d at time %d with resources %d (remainign %d) - will finish at %d\n", index_node, time+1, 
-                                            id_resource[index_node], resources[i].occurency, time + remain_time[index_node]);
-                                    }
-                                    #endif
-                                    if (resources[i].occurency == 0)
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                    
-                    #ifdef TESTING_SCHEDULING
-                    if(idx == 1035 && k_comb == 3) {
-                        printf("See EXECUTE node\n");
-                        for(j = 0; j < node_number; j++)
-                            printf("Node %d state %d dep %d\n", node[j].id_node, state[j], dependecies_level_satisfy[j]);
-                    }
-                    #endif
-
                     // Put some node from idle to executed state
-                    for(j = 0; j < node_number; j++)
+                    if(resources[i].occurency > 0)
                     {
-                        // Check if exist a node that has parents scheduled and is in Idle state
-                        if(state[j] == Execution)
+                        for(j = 0; j < Operation[resources[i].index_operation].index_next_node_occurency; j++)
                         {
-                            flag = 1;
-                            if (remain_time[j] == 1) 
+                            index_node = Operation[resources[i].index_operation].index_next_node[j];
+                            // Check if exist a node that has parents scheduled and is in Idle state
+                            if(dependecies_level_satisfy[index_node] == 0 && state[index_node] == Idle)
                             {
+                                flag = 1;
+                                // Associate the resources to the node and decrease the occurency
+                                remain_time[index_node] =  (uint8_t) resources[i].speed;
+                                id_resource[index_node] =  (uint8_t) i;
+                                state[index_node]       =  (uint8_t) Execution;                               
+                                resources[i].occurency--;
                                 #ifdef TESTING_SCHEDULING
                                 if(idx == 1035 && k_comb == 3) {
-                                    printf("END node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time+1, id_resource[j]);
+                                    printf("Scheduling node %d at time %d with resources %d (remainign %d) - will finish at %d\n", index_node, time+1, 
+                                        id_resource[index_node], resources[i].occurency, time + remain_time[index_node]);
                                 }
                                 #endif
-                                // Node terminates to use the resource and all his dependencies have to be free
-                                state[j] = Finish;
-                                resources[id_resource[j]].occurency++;
-                                for(z = 0; z < node[j].index_next_node_occurency; z++)
-                                    dependecies_level_satisfy[node[j].index_next_node[z]]--; 
-                            } else {
-                                remain_time[j]--;
-                                #ifdef TESTING_SCHEDULING
-                                if(idx == 1035 && k_comb == 3) {
-                                    printf("Node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time+1, id_resource[j]);
-                                }
-                                #endif
+                                if (resources[i].occurency == 0)
+                                    break;
                             }
                         }
                     }
-                    
-                    #ifdef TESTING_SCHEDULING
-                    if(idx == 1035 && k_comb == 3) {
-                        printf("End time %d\n\n", time+1);
-                    }
-                    #endif
+                }
+                
+                #ifdef TESTING_SCHEDULING
+                if(idx == 1035 && k_comb == 3) {
+                    printf("See EXECUTE node\n");
+                    for(j = 0; j < node_number; j++)
+                        printf("Node %d state %d dep %d\n", node[j].id_node, state[j], dependecies_level_satisfy[j]);
+                }
+                #endif
 
-                    time++;
-                } // End scheduling
-            } // END if all operation are covered
-        } // END if area limit
+                // Put some node from idle to executed state
+                for(j = 0; j < node_number; j++)
+                {
+                    // Check if exist a node that has parents scheduled and is in Idle state
+                    if(state[j] == Execution)
+                    {
+                        flag = 1;
+                        if (remain_time[j] == 1) 
+                        {
+                            #ifdef TESTING_SCHEDULING
+                            if(idx == 1035 && k_comb == 3) {
+                                printf("END node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time+1, id_resource[j]);
+                            }
+                            #endif
+                            // Node terminates to use the resource and all his dependencies have to be free
+                            state[j] = Finish;
+                            resources[id_resource[j]].occurency++;
+                            for(z = 0; z < node[j].index_next_node_occurency; z++)
+                                dependecies_level_satisfy[node[j].index_next_node[z]]--; 
+                        } else {
+                            remain_time[j]--;
+                            #ifdef TESTING_SCHEDULING
+                            if(idx == 1035 && k_comb == 3) {
+                                printf("Node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time+1, id_resource[j]);
+                            }
+                            #endif
+                        }
+                    }
+                }
+                
+                #ifdef TESTING_SCHEDULING
+                if(idx == 1035 && k_comb == 3) {
+                    printf("End time %d\n\n", time+1);
+                }
+                #endif
+
+                time++;
+            } // End scheduling
+        } // END if all operation are covered and area limit
        
         final_time[threadIdx.x] = time;
         final_area[threadIdx.x] = area;
@@ -395,6 +378,7 @@
                     printf("idx: %d --> No combination for ", idx);
                     for(i = 0; i < k_comb; i++)
                         printf("%d  ", final_combination[threadIdx.x*k_comb+i]);
+                    printf(" -- area is %d", area);
                 } else {
                     printf("idx: %d - Best time: %d - area: %d\n", idx, final_time[threadIdx.x], final_area[threadIdx.x]);
                     for(i = 0; i < k_comb; i++)
@@ -413,21 +397,25 @@
         if(idx == start_comb)
         {
             __syncthreads();
-            for(i = 0; final_time[i] ==  -1 && i < end_comb-start_comb; i++);
+            for(i = 0; final_time[i] ==  -1 && i < diff_comb; i++);
             int best = i;
-            for(; i < end_comb-start_comb; i++)
+            for(; i < diff_comb; i++)
             { 
                 if (final_time[i] > -1 && (final_time[best] > final_time[i]
                     || (final_time[best] == final_time[i] && final_area[best] > final_area[i])))
                     best = i;
             }
 
-            *final_best_time       = final_time[best];
-            *final_area_calculated = final_area[best];
-            for(i = 0; i <  k_comb; i++)
+            if (final_time[best]  > -1 && (best_time > final_time[best] 
+                    || (best_time == final_time[best] && area_calculated > final_area[best])))
             {
-                final_best_combination[i] = final_combination[best*k_comb + i];
-                final_best_repetition[i]  = final_repetition[best*k_comb + i];
+                *final_best_time       = final_time[best];
+                *final_area_calculated = final_area[best];
+                for(i = 0; i <  k_comb; i++)
+                {
+                    final_best_combination[i] = final_combination[best*k_comb + i];
+                    final_best_repetition[i]  = final_repetition[best*k_comb + i];
+                }
             }
         }
     } // End check if rigth thread
@@ -772,7 +760,7 @@
     }
 
     // store the value for comparison
-    uint8_t *best_final            = (uint8_t *)malloc(sizeof(uint8_t)*(resource_number+1));   
+    uint8_t *best_final            = (uint8_t *)malloc(sizeof(uint8_t)*(resource_number));   
     uint8_t *best_final_repetition = (uint8_t *)malloc(sizeof(uint8_t)*resource_number);
     int best_time = 0x7fffffff;
     int area_calculated = 0x7fffffff;
@@ -812,10 +800,14 @@
     int saved_k[max_stream_number];
 
     // to store the execution time of code
-    double time_spent = 0.0;
     cudaError_t cuda_error;
- 
-    clock_t begin = clock();
+
+    time_t rawtime_start, rawtime_end;
+    struct tm *timeinfo_start, *timeinfo_end;
+
+    time(&rawtime_start);
+    timeinfo_start = localtime(&rawtime_start);
+
     // how big are the cutset, modify it iteratively
     // for(k = 12; k <= 12; k++) {
     for(k = operation_used; k <= resource_number; k++) {
@@ -828,9 +820,7 @@
 
         // sum of all vector inside kernel
         shared_memory_size = (int) (k*((int) sizeof(uint8_t))*2 +
-                                operation_number*((int) sizeof(uint8_t)) +
-                                sizeof(int)*2 +
-                                node_number*((int) sizeof(uint8_t))*4);
+                                sizeof(int)*2);
         
         printf("Number of total combination witk k equal to %d are: %d -- ", k, tot_comb);
         
@@ -871,7 +861,8 @@
                 shared_memory_size, offset_shared_memory_size, max_repetition, factor,
                  dev_Operation, operation_number, dev_node, node_number, area_limit, resource_number,
                 dev_final_best_combination[stream_number], dev_final_best_repetition[stream_number],
-                &(dev_final_best_time[stream_number]), &(dev_final_area_calculated[stream_number]));
+                &(dev_final_best_time[stream_number]), &(dev_final_area_calculated[stream_number]),
+                best_time, area_calculated);
             
             cuda_error = cudaGetLastError();
             if(cuda_error != cudaSuccess)
@@ -926,12 +917,6 @@
                             
     } // END For k subset
 
-    clock_t end = clock();
-
-    // calculate elapsed time by finding difference (end - begin) and
-    // dividing the difference by CLOCKS_PER_SEC to convert to seconds
-    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
-
     cudaFree(dev_final_best_time);
     cudaFree(dev_final_area_calculated);
     for(i = 0; i < max_stream_number; i++)
@@ -943,19 +928,14 @@
     }
     
     /** Print the best solution obtained */
-    fp = fopen("log_v2_3.log", "a");
+    fp = fopen("log_v2_4.log", "a");
 
-    time_t rawtime;
-    struct tm * timeinfo;
-
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-
-    fprintf (fp, "--------------------------------------------------\n");
-    fprintf (fp, "Start local time and date: %s\n", asctime(timeinfo) );
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-    fprintf (fp, "End local time and date: %s\n", asctime(timeinfo) );
+    fprintf(fp, "--------------------------------------------------\n");
+    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo_start));
+    
+    time(&rawtime_end);
+    timeinfo_end = localtime(&rawtime_end);
+    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo_end));
     fprintf (fp, "DFG is %s\n", argv[1]);
     fprintf (fp, "Reasources are %s\n", argv[2]);
     fprintf(fp, "Area Limit is %d\n", area_limit);
@@ -987,8 +967,8 @@
     fprintf(stdout, "Final area is %d\n", area_calculated);
     fprintf(fp, "Final area is %d\n", area_calculated);
   
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
-    fprintf(fp,"\nThe elapsed time is %f seconds\n\n", time_spent);
+    fprintf(stdout, "\nThe elapsed time is %ld seconds\n", rawtime_end - rawtime_start);
+    fprintf(fp, "\nThe elapsed time is %ld seconds\n\n", rawtime_end - rawtime_start);
 
     cudaFree(dev_node);
     cudaFree(dev_Operation);

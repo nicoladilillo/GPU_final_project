@@ -2,18 +2,16 @@ dot_file=(
     "arf.txt"
     "fir.txt"
     "ewf.txt"
-    "h2v2_smooth_downsample_dfg__6.txt"
 )
 
 area_limit=(
-    1000
     500
 )
 
 cd result
 DFG_folder="../DFGs_new/"
 
-dirlist=($(ls ../source/executable/*.out))
+dirlist=($(ls ../source/executable/*CPU.out))
 for f in ${dirlist[@]} 
 do 
     for dot in ${dot_file[@]}

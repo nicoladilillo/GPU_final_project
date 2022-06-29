@@ -835,10 +835,14 @@
     int saved_k[max_stream_number];
     
     // to store the execution time of code
-    double time_spent = 0.0;
     cudaError_t cuda_error;
- 
-    clock_t begin = clock();
+
+    time_t rawtime_start, rawtime_end;
+    struct tm *timeinfo_start, *timeinfo_end;
+
+    time(&rawtime_start);
+    timeinfo_start = localtime(&rawtime_start);
+
     // how big are the cutset, modify it iteratively
     //for(k = 5; k <= 5; k++) {
     for(k = operation_used; k <= resource_number; k++) {
@@ -857,8 +861,8 @@
         printf("Number of total combination witk k equal to %d are: %d -- ", k, tot_comb);
         
         factor = 1;
-        for(i = 0; i < max_repetition; i++)
-            factor *= k;
+        for(i = 0; i < k; i++)
+            factor *= max_repetition;
         tot_comb *= factor;
         printf("thread are %d\n", tot_comb);
         #ifdef TESTING_MEMORY
@@ -906,7 +910,9 @@
 
             if (stream_number == max_stream_number || (k == resource_number && end_comb == tot_comb))
             {
+                #ifdef TESTING_MEMORY
                 printf("Arrived with waiting %d streams\n", stream_number);
+                #endif
 
                 for(i = 0; i < stream_number; i++) 
                 {   
@@ -944,13 +950,7 @@
             
         }
                             
-    } // END For k subset
-
-    clock_t end = clock();
-
-    // calculate elapsed time by finding difference (end - begin) and
-    // dividing the difference by CLOCKS_PER_SEC to convert to seconds
-    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+    }
 
     cudaFree(dev_final_best_time);
     cudaFree(dev_final_area_calculated);
@@ -965,14 +965,12 @@
     /** Print the best solution obtained */
     fp = fopen("log_v2_0.log", "a");
     
-    time_t rawtime;
-    struct tm * timeinfo;
-
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-
-    fprintf (fp, "--------------------------------------------------\n");
-    fprintf (fp, "Current local time and date: %s\n", asctime(timeinfo) );
+    fprintf(fp, "--------------------------------------------------\n");
+    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo_start));
+    
+    time(&rawtime_end);
+    timeinfo_end = localtime(&rawtime_end);
+    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo_end));;
     fprintf (fp, "DFG is %s\n", argv[1]);
     fprintf (fp, "Reasources are %s\n", argv[2]);
     fprintf(fp, "Area Limit is %d\n", area_limit);
@@ -1004,8 +1002,8 @@
     fprintf(stdout, "Final area is %d\n", area_calculated);
     fprintf(fp, "Final area is %d\n", area_calculated);
   
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
-    fprintf(fp,"\nThe elapsed time is %f seconds\n\n", time_spent);
+    fprintf(stdout, "\nThe elapsed time is %ld seconds\n", rawtime_end - rawtime_start);
+    fprintf(fp, "\nThe elapsed time is %ld seconds\n\n", rawtime_end - rawtime_start);
 
     cudaFree(dev_node);
     cudaFree(dev_Operation);

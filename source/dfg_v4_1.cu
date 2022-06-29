@@ -5,7 +5,7 @@
  * 
  * single thread care about a single repetition.
  * 
- * Use much more blocks and streams, one for each combinations
+ * Use bigger variable for handle more threads ans reduce the number of moltiplication to speed up thread
  */
 
 #include <stdio.h>
@@ -249,7 +249,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
             }
 
 #ifdef TESTING_SCHEDULING
-            if (idx == 1035 && k_comb == 3)
+            if (idx == 1000 && k_comb == 6)
             {
                 printf("START SCHEDULING WITH: \n");
                 for (i = 0; i < k_comb; i++)
@@ -267,7 +267,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
             while (flag)
             {
 #ifdef TESTING_SCHEDULING
-                if (idx == 1035 && k_comb == 3)
+                if (idx == 1000 && k_comb == 6)
                 {
                     printf("START time %d\n", time + 1);
                     printf("See IDLE node\n");
@@ -279,7 +279,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                 for (i = 0; i < k_comb; i++)
                 {
 #ifdef TESTING_SCHEDULING
-                    if (idx == 1035 && k_comb == 3)
+                    if (idx == 1000 && k_comb == 6)
                     {
                         printf("res %d - op %d - occ %d\n", final_combination[base + i], resources[i].index_operation, resources[i].occurency);
                     }
@@ -301,7 +301,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                                 state[index_node] = (uint8_t)Execution;
                                 resources[i].occurency--;
 #ifdef TESTING_SCHEDULING
-                                if (idx == 1035 && k_comb == 3)
+                                if (idx == 1000 && k_comb == 6)
                                 {
                                     printf("Scheduling node %d at time %d with resources %d (remainign %d) - will finish at %d\n", index_node, time + 1,
                                            id_resource[index_node], resources[i].occurency, time + remain_time[index_node]);
@@ -315,7 +315,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                 }
 
 #ifdef TESTING_SCHEDULING
-                if (idx == 1035 && k_comb == 3)
+                if (idx == 1000 && k_comb == 6)
                 {
                     printf("See EXECUTE node\n");
                     for (j = 0; j < node_number; j++)
@@ -333,7 +333,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                         if (remain_time[j] == 1)
                         {
 #ifdef TESTING_SCHEDULING
-                            if (idx == 1035 && k_comb == 3)
+                            if (idx == 1000 && k_comb == 6)
                             {
                                 printf("END node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time + 1, id_resource[j]);
                             }
@@ -348,7 +348,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                         {
                             remain_time[j]--;
 #ifdef TESTING_SCHEDULING
-                            if (idx == 1035 && k_comb == 3)
+                            if (idx == 1000 && k_comb == 6)
                             {
                                 printf("Node %d (op %d -- state %d) at time %d with resources %d\n", j, node[j].index_operation, state[j], time + 1, id_resource[j]);
                             }
@@ -358,7 +358,7 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
                 }
 
 #ifdef TESTING_SCHEDULING
-                if (idx == 1035 && k_comb == 3)
+                if (idx == 1000 && k_comb == 6)
                 {
                     printf("End time %d\n\n", time + 1);
                 }
@@ -403,17 +403,17 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
         if (threadIdx.x == 0)
         {
             __syncthreads();
-            for (i = 0; final_time[i] == -1 && i < MAX_THREADS && (blockIdx.x * blockDim.x + i + start_comb) < tot_comb; i++)
+            for (i = 0; i < MAX_THREADS && final_time[i] == -1 && (i + idx) < end_comb; i++)
                 ;
             int best = i;
 
-            for (; i < MAX_THREADS && (blockIdx.x * blockDim.x + i + start_comb) < tot_comb; i++)
+            for (i++; i < MAX_THREADS && (i + idx) < end_comb; i++)
             {
                 if (final_time[i] > -1 && (final_time[best] > final_time[i] || (final_time[best] == final_time[i] && final_area[best] > final_area[i])))
                     best = i;
             }
 
-            if ((blockIdx.x * blockDim.x + best + start_comb) < tot_comb && final_time[best] > -1 && (best_time > final_time[best] || (best_time == final_time[best] && area_calculated > final_area[best])))
+            if ((idx + best) < tot_comb && final_time[best] > -1 && (best_time > final_time[best] || (best_time == final_time[best] && area_calculated > final_area[best])))
             {
                 final_best_time[blockIdx.x] = final_time[best];
                 final_area_calculated[blockIdx.x] = final_area[best];
@@ -772,14 +772,14 @@ int main(int argc, char const *argv[])
     // store the value for comparison
     uint8_t *best_final            = (uint8_t *)malloc(sizeof(uint8_t) * (resource_number));
     uint8_t *best_final_repetition = (uint8_t *)malloc(sizeof(uint8_t) * (resource_number));
-    int best_time = 0x7fffffff;
-    int area_calculated = 0x7fffffff;
-    int area_limit = atoi(argv[3]);
-    int max_repetition = 3;
+    unsigned int best_time = 0x7fffffff;
+    unsigned int area_calculated = 0x7fffffff;
+    unsigned int area_limit = atoi(argv[3]);
+    unsigned int max_repetition = 3;
 
-    int shared_memory_size;
-    int tot_shared_memory;
-    int offset_shared_memory_size = int(operation_number * sizeof(operation_GPU_t) +
+    unsigned int shared_memory_size;
+    unsigned int tot_shared_memory;
+    unsigned int offset_shared_memory_size = (unsigned int)(operation_number * sizeof(operation_GPU_t) +
                                         node_number * sizeof(node_GPU_t));
 
     printf("Number of possible resource is %d\n", resource_number);
@@ -788,50 +788,48 @@ int main(int argc, char const *argv[])
     printf("\n");
 
     // variable used for calculate internaly the idx for combination and the proper repetition
-    int factor;
+    unsigned int factor;
 
     // Invoke kernel
-    int threadsPerBlock_d, block_d;
-    int end_comb = 0;
-    int start_comb = 0;
-    int saved_block_d[max_stream_number];
-    int saved_k[max_stream_number];
+    unsigned int threadsPerBlock_d, block_d;
+    unsigned int end_comb = 0;
+    unsigned int start_comb = 0;
+    unsigned int saved_block_d[max_stream_number];
+    unsigned int saved_k[max_stream_number];
 
     // to store the execution time of code
-    double time_spent = 0.0;
     cudaError_t cuda_error;
 
-    time_t rawtime;
-    struct tm *timeinfo;
+    time_t rawtime_start, rawtime_end;
+    struct tm *timeinfo_start, *timeinfo_end;
 
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
+    time(&rawtime_start);
+    timeinfo_start = localtime(&rawtime_start);
 
-    clock_t begin = clock();
     // how big are the cutset, modify it iteratively
-    // for(k = 12; k <= 12; k++) {
+    // for(k = 11; k <= 11; k++)
     for (k = operation_used; k <= resource_number; k++)
     {
         // calculate number of combinations
         int n_f = 1; // nominatore fattoriale
         for (i = resource_number; i > k; i--)
             n_f *= i;
-        int d_f = 1; // denominatore fattoriale
+        unsigned int d_f = 1; // denominatore fattoriale
         for (i = 1; i <= resource_number - k; i++)
             d_f *= i;
-        unsigned int tot_comb = n_f / d_f;
+        unsigned long tot_comb = (unsigned long) n_f / d_f;
 
         // sum of all vector inside kernel
         shared_memory_size = (int)(k * ((int)sizeof(uint8_t)) * 2 +
                                    sizeof(int) * 2);
 
-        printf("Number of total combination witk k equal to %d are: %d -- ", k, tot_comb);
+        printf("Number of total combination witk k equal to %d are: %lu -- ", k, tot_comb);
 
         factor = 1;
         for (i = 0; i < k; i++)
             factor *= max_repetition;
         tot_comb *= factor;
-        printf("thread are %d -- with factor %d\n", tot_comb, factor);
+        printf("thread are %lu -- with factor %d\n", tot_comb, factor);
         #ifdef TESTING_MEMORY
         printf("Piece of shared memory is %d\n", shared_memory_size);
         #endif
@@ -953,12 +951,6 @@ int main(int argc, char const *argv[])
 
     } // END For k subset
 
-    clock_t end = clock();
-
-    // calculate elapsed time by finding difference (end - begin) and
-    // dividing the difference by CLOCKS_PER_SEC to convert to seconds
-    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
-
     cudaFree(dev_final_best_time);
     cudaFree(dev_final_area_calculated);
     cudaFree(dev_final_best_repetition);
@@ -968,10 +960,11 @@ int main(int argc, char const *argv[])
     fp = fopen("log_v4_1.log", "a");
 
     fprintf(fp, "--------------------------------------------------\n");
-    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo));
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo));
+    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo_start));
+    
+    time(&rawtime_end);
+    timeinfo_end = localtime(&rawtime_end);
+    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo_end));
     fprintf(fp, "DFG is %s\n", argv[1]);
     fprintf(fp, "Reasources are %s\n", argv[2]);
     fprintf(fp, "Area Limit is %d\n", area_limit);
@@ -1001,8 +994,8 @@ int main(int argc, char const *argv[])
     fprintf(stdout, "Final area is %d\n", area_calculated);
     fprintf(fp, "Final area is %d\n", area_calculated);
 
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
-    fprintf(fp, "\nThe elapsed time is %f seconds\n\n", time_spent);
+    fprintf(stdout, "\nThe elapsed time is %ld seconds\n", rawtime_end - rawtime_start);
+    fprintf(fp, "\nThe elapsed time is %ld seconds\n\n", rawtime_end - rawtime_start);
 
     cudaFree(dev_node);
     cudaFree(dev_Operation);

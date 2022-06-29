@@ -1,8 +1,5 @@
 dot_file=(
-    "arf.txt"
-    "fir.txt"
-    "ewf.txt"
-    "h2v2_smooth_downsample_dfg__6.txt"
+    "collapse_pyr_dfg__113.txt"
 )
 
 area_limit=(
@@ -13,7 +10,7 @@ area_limit=(
 cd result
 DFG_folder="../DFGs_new/"
 
-dirlist=($(ls ../source/executable/*.out))
+dirlist=($(ls ../source/executable/dfg_v4_1.out))
 for f in ${dirlist[@]} 
 do 
     for dot in ${dot_file[@]}

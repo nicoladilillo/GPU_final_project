@@ -3,9 +3,7 @@
  * in a parralel way on GPU. The elaborated combination don't follow 
  * the lexograpical order.
  * 
- * single thread care about a single repetition.
- * 
- * Use much more blocks
+ * Single stream care about single set of subset occurency with same k
  */
 
 #include <stdio.h>
@@ -799,16 +797,14 @@ int main(int argc, char const *argv[])
     int start_comb = 0;
 
     // to store the execution time of code
-    double time_spent = 0.0;
     cudaError_t cuda_error;
 
-    time_t rawtime;
-    struct tm *timeinfo;
+    time_t rawtime_start, rawtime_end;
+    struct tm *timeinfo_start, *timeinfo_end;
 
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
-    clock_t begin = clock();
+    time(&rawtime_start);
+    timeinfo_start = localtime(&rawtime_start);
+    
     // how big are the cutset, modify it iteratively
     // for(k = 12; k <= 12; k++) {
     for (k = operation_used; k <= resource_number; k++)
@@ -907,12 +903,6 @@ int main(int argc, char const *argv[])
 
     } // END For k subset
 
-    clock_t end = clock();
-
-    // calculate elapsed time by finding difference (end - begin) and
-    // dividing the difference by CLOCKS_PER_SEC to convert to seconds
-    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
-
     cudaFree(dev_final_best_time);
     cudaFree(dev_final_area_calculated);
     cudaFree(dev_final_best_repetition);
@@ -924,10 +914,11 @@ int main(int argc, char const *argv[])
     fp = fopen("log_v3_0.log", "a");
 
     fprintf(fp, "--------------------------------------------------\n");
-    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo));
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo));
+    fprintf(fp, "Start local time and date: %s\n", asctime(timeinfo_start));
+    
+    time(&rawtime_end);
+    timeinfo_end = localtime(&rawtime_end);
+    fprintf(fp, "End local time and date: %s\n", asctime(timeinfo_end));
     fprintf(fp, "DFG is %s\n", argv[1]);
     fprintf(fp, "Reasources are %s\n", argv[2]);
     fprintf(fp, "Area Limit is %d\n", area_limit);
@@ -957,8 +948,8 @@ int main(int argc, char const *argv[])
     fprintf(stdout, "Final area is %d\n", area_calculated);
     fprintf(fp, "Final area is %d\n", area_calculated);
 
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
-    fprintf(fp, "\nThe elapsed time is %f seconds\n\n", time_spent);
+    fprintf(stdout, "\nThe elapsed time is %ld seconds\n", rawtime_end - rawtime_start);
+    fprintf(fp, "\nThe elapsed time is %ld seconds\n\n", rawtime_end - rawtime_start);
 
     cudaFree(dev_node);
     cudaFree(dev_Operation);

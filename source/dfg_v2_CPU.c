@@ -566,7 +566,10 @@ int main(int argc, char const *argv[])
     int best_time = 0x7fffffff;
     int area_calculated = 0x7fffffff;
 
+    fp = stdout;
+    #ifdef TESTING
     fp = fopen("output_v4.txt", "w");
+    #endif
     fprintf(stdout, "The total os resources is %d\n", n);
     fprintf(stdout, "k min is %d and k max is %d\n\n", operation_used, resource_number);
     for(k = operation_used; k <= resource_number; k++) {
