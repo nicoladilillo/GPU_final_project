@@ -1,0 +1,39 @@
+\chapter{Parallelization}
+\label{chap2}
+
+The advantage of GPU implementation derive to the possibility to create all possible combinations of resources in a parallel way and not sequentially. Theoretically this means that in a single instant the entire set is created, practically little amount of time pass between one and other.
+
+\section{Combination}
+
+Formula \ref{comb_formula} indicates all to possible combinations that can be extract from a set of n elements choosing group of k elements. In this case the n indicate the occurrence of resources. 
+
+\begin{equation}
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+    \label{comb_formula}
+\end{equation}
+
+The complete power set to formulate has an occurrence equal to the sum of all combination from the minimal number of resources needed to the max number, like show in formula \ref{power_set}.
+
+\begin{equation}
+    \sum_{i=k_{min}}^{k_{max}} \binom{n}{i} = 
+    \sum_{i=k_{min}}^{k_{max}} \frac{n!}{i!(n-i)!}
+    \label{power_set}
+\end{equation}
+
+\section{Combinadic}
+
+Combinadic is a useful technique that, giving and index in the range between 0 and $\binom{n}{k}-1$ , return a unique combination set of k element, produced in lexicographic order.
+
+\subsection{Combinadic in GPU}
+
+Exploit Combinadic in GPU is pretty immediate. Each thread in GPU has an unique id value that goes from zero to the number of initialize thread minus one. This id could be used to take a specific combination set and then use it to compute all the latency. 
+
+\section{Repetition}
+
+What explain until now is based on combination with no repetition but a resource can be instantiate more than once!
+
+In a sequential algorithm the max repetition constraint is implemented since the beginning in the code while here it is develop in the thread differently, with it's own implementation. In this case also the CPU algorithm follow the same method in order to have a best prototype of the best parallel one.
+
+Like will be show in the next chapter, will be not possible to create all repetitions of combinations set inside a single thread on the GPU, errors will arise due to time. To avoid this problem single thread should handle also each single repetition. In this way much more simple thread are created. While in the previous version all the repetition that respect area constraint are analyze and the useless are not created, now all ones are take into consideration.
+
+To not explode computation a max of repetition for each resources is set.

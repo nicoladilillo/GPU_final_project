@@ -78,6 +78,6 @@ for k in dfgs.keys():
 
         fig.tight_layout()
 
-        plt.savefig(str("histogram/"+k+".png"), dpi = 600)
+        plt.savefig(str("bar/"+k+".png"), dpi = 600)
         
 

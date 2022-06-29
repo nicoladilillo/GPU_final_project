@@ -1,0 +1,61 @@
+\chapter{Implementation}
+\label{chap3}
+
+\section{CPU}
+
+Before to proceed with the parallelization of this algorithm, a sequential version, executable on CPU, has been written. At the end the results will be the same and the only different will be the time of computation.
+
+This is the prototype of final release, more easy to develop, especially for the final part that compare the best scheduling latency. Here big optimization are not so useful for better performance, used more or less memory not speed up the computation.
+
+\section{GPU Data Structure}
+
+To perform the GPU elaboration data structure has been changed in order to lighten the overall process of memory copy, the real bottleneck of this approach. For this reason the device has to shrink the data previous to pass them to host.
+
+The main big information variables are related all about node and operation information. Both keep track of information that are not useful for scheduling computation and so, before to call GPU kernel, they are filtered to maintain only the main information.
+
+To improve the elaboration also other variable are been accurately choose to use as less memory as possible.
+
+\section{Scheduling Algorithm}
+
+The section \ref{list_scheduling} explains which algorithm has been choose to performer scheduling operation. This part is identical both for GPU and CPU versions, change only the implementation of some variable, needed for final result, that correspond to a latency value. How will be explained in the next chapter those variables, to be more precise those arrays, will be the one of critical point that has to be improved to achieve better performance.
+
+
+\section{GPU Kernel}
+
+Different version has been created to see which will be the best approach to use to have the best performance.
+
+By the way all of them use the same mechanism to analyze which repeated combination has the best latency. In the same block all threads save the result of latency and their own repeated combination on shared memory so, when all terminated the scheduling operation, the best set of resources is pick inside same block and pass to host trough the main memory. At the end CPU checks all combinations coming from kernel and choose the best one with minimum latency, in case of equality the one with minimum area is chosen. This part is implemented almost in the same way in all versions.
+
+\subsection{Version 1}
+
+The version one is base on the create thread that handle all repetition given a single combination. If not operation are covered the thread doesn't create the repetition. The single repetition scheduling is executed only if the area constraint is respected.
+
+Combinations are group 1024 at a time, each using a single block inside a stream.
+
+For long repetition time problems occurs and the kernel stops its execution.
+
+\subsection{Version 2}
+
+Each thread handle a single repeat combination and, also if the combination don't cover all the needed operation or if area constraint are not respected, the thread is created but the scheduling is not lunch. Different version has been created to test which is the best way to arrange variable declaration.
+
+\begin{itemize}
+    \item Version 2.0, like the previous one but with the new property of single repetition for thread.
+    
+    \item Version 2.1, use less shared memory that is compensated by dynamic allocation.
+    
+    \item Version 2.2, not use anymore dynamic allocation and improve the usage of resources, allocated a fix amount of memory.
+    
+    \item Version 2.3, instead of shared memory, arrays of fixed dimension are used inside each thread when possible and the global memory is called only when latency value obtain are better than before. Furthermore now, at the end execution of each blocks inside a thread, only thread with id zero take care to choose which has the best latency. 
+\end{itemize}
+
+From this version is pretty sure that dynamic allocation is a technique that needed a lot of time and not the best choice while, the usage of local register and call global memory as lest as possible, are big improvement.
+
+Also here combinations are group 1024 at a time, each using a single block inside a stream.
+
+\subsection{Version 3}
+
+In previous version each stream handles single block while in this version each they are not more used and each kernel call works with all blocks that, given the combination $\binom{n}{k}$, has the same value of $k$. Now much more global memory is copy at the same time and this could result in an import speed up of the system.
+
+\subsection{Version 4}
+
+Merge the advantage of multi stream of version 2 and with the possibility to work with more blocks inside each stream of version 3. Then a further improved of version 4.1 has been add in order to have the possibility to have workload that stress the GPU with the creation of billion of threads.
