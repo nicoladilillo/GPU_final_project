@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex homebook.idx"] 1656601482 "homebook.idx" "homebook.ind" "homebook" 1656601504
-  "homebook.idx" 1656601495 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex homebook.idx"] 1656601482 "homebook.idx" "homebook.ind" "homebook" 1656605234
+  "homebook.idx" 1656605225 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "homebook.ilg"
   "homebook.ind"
-["pdflatex"] 1656601493 "c:/Users/nicola/OneDrive/Desktop/GPU/assignment/report/homebook.tex" "homebook.pdf" "homebook" 1656601504
+["pdflatex"] 1656605223 "c:/Users/nicola/OneDrive/Desktop/GPU/assignment/report/homebook.tex" "homebook.pdf" "homebook" 1656605234
   "C:/Users/nicola/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1636719753 11548 c504fbf4bf1cf0938fa4b6b51fe41fa0 ""
   "C:/Users/nicola/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1636718878 9726842 3ba8f39106480c92f1c0fbf3e5088132 ""
   "C:/Users/nicola/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1656572229 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
@@ -120,7 +120,7 @@
   "C:/Users/nicola/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636288472 56029 3f7889dab51d620aa43177c391b7b190 ""
   "appendices/appendix1.tex" 1656601479 1141 c5936d717f0bf6541eb4344369bc4240 ""
   "appendices/appendix2.tex" 1656601361 739 4a12df400033194bf617315921a25062 ""
-  "c:/Users/nicola/OneDrive/Desktop/GPU/assignment/report/homebook.tex" 1656572478 5148 d3ea7e60b1658ebdd73aeef8c3f6c170 ""
+  "c:/Users/nicola/OneDrive/Desktop/GPU/assignment/report/homebook.tex" 1656605219 5044 c34c369493db04391d59ef62365619b3 ""
   "chapters/chap1.tex" 1656585131 5420 be8be91f5f04e7059e13e726ba2f065a ""
   "chapters/chap2.tex" 1656595595 5928 0edb1a4c03c3adf88826916fd25c9c0a ""
   "chapters/chap3.tex" 1656598141 5981 58b1d1edc3cd7333a9beae21f0b55545 ""
@@ -132,16 +132,16 @@
   "chapters/figures/fir_500.png" 1656517783 196778 2fc688c2728c7bd6da4ddea3834a8084 ""
   "chapters/figures/h2v2_smooth_downsample_dfg__6_1000.png" 1656524653 230327 73ac4d0f3cb9ad4b845ce0fcda7661a6 ""
   "chapters/figures/h2v2_smooth_downsample_dfg__6_500.png" 1656595331 254417 de372f5e7b22d265e2a1d4cde8d814e5 ""
-  "homebook.aux" 1656601503 7160 72b43f30fb8b813813f3467a2562c32d "pdflatex"
+  "homebook.aux" 1656605232 7160 72b43f30fb8b813813f3467a2562c32d "pdflatex"
   "homebook.ind" 1656601483 0 d41d8cd98f00b204e9800998ecf8427e "makeindex homebook.idx"
-  "homebook.out" 1656601503 3262 e517df18e9fab69fcee15240b6fba377 "pdflatex"
-  "homebook.tex" 1656572478 5148 d3ea7e60b1658ebdd73aeef8c3f6c170 ""
-  "homebook.toc" 1656601503 2111 3d200ffcf488271ade4a74f4bae938c7 "pdflatex"
+  "homebook.out" 1656605232 3262 e517df18e9fab69fcee15240b6fba377 "pdflatex"
+  "homebook.tex" 1656605219 5044 c34c369493db04391d59ef62365619b3 ""
+  "homebook.toc" 1656605232 2111 3d200ffcf488271ade4a74f4bae938c7 "pdflatex"
   "logopoli.png" 1656510794 268312 19b7b3b5d2bea6d36e5545454ae1f690 ""
   (generated)
-  "homebook.aux"
   "homebook.out"
-  "homebook.idx"
   "homebook.toc"
   "homebook.pdf"
   "homebook.log"
+  "homebook.aux"
+  "homebook.idx"
