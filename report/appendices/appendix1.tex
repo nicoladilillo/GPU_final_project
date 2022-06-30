@@ -2,11 +2,11 @@
 \chapter{Convert DFG}\
 \label{appendix1}
 
-The extension \.dot it's a format file suitable for 
+The extension .dot it's a file format suitable for 
 representing DFG in a graphical way. For the purpose of
-this project this kind of format is not suitable and so     
+this project this kind of format is not very efficient and so     
 the following python script has been written to convert 
-representation in a more easy one. Start from the original file
+it in a more easy one. Start from the original file
 the script read all the node and than in the new file are written:
 
 \begin{itemize}
@@ -21,9 +21,12 @@ Then also the edge are read and in the file are written:
     \item e rows representing the pair starting node and arrival node.
 \end{itemize}
 
-The produced file is saved in \.txt format.
+The produced file is saved in .txt format.
 
-In this way the reading in C language is much more easier and more faster and the DFG remain the same.
+In this way the reading in C language is much more easier and more faster and the DFG remains the same.
 
-To se the graphical representation of DFG the .dot file is needed while to work run the GPU scheduling 
+To se the graphical representation of DFG the .dot file is needed while to run the GPU scheduling 
 the conversion format is used.
+
+DFG with .dot extension are available under folder \emph{DFGs} while DFG converted are 
+available under folder \emph{DFGs\_new}.
