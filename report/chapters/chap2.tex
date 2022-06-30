@@ -1,7 +1,7 @@
 \chapter{Parallelization}
 \label{chap2}
 
-The advantage of GPU implementation derive to the possibility to create all possible combinations of resources in a parallel way and not sequentially. Theoretically this means that in a single instant the entire set is created, practically little amount of time pass between one and other.
+The advantage of GPU implementation derive to the possibility to create all possible combinations of resources in a parallel way and not sequentially. Theoretically this means that in a single instant the entire set is created, practically little amount of time pass between one and other and, if the set is too big, parallelization is split in more blocks.
 
 \section{Combination}
 
@@ -21,8 +21,9 @@ The complete power set to formulate has an occurrence equal to the sum of all co
 \end{equation}
 
 \section{Combinadic}
+\label{Combinadic}
 
-Combinadic is a useful technique that, giving and index in the range between 0 and $\binom{n}{k}-1$ , return a unique combination set of k element, produced in lexicographic order.
+Combinadic is a useful technique that, giving and index in the range between 0 and $\binom{n}{k}-1$ , return a unique combination set of k element.
 
 From a given combination is possible to find the corresponding number $N$, corresponding to 
 $c_k > ... > c_2 > c_1$, according formula \ref{id_Combinadic}.
@@ -32,9 +33,9 @@ $c_k > ... > c_2 > c_1$, according formula \ref{id_Combinadic}.
     \label{id_Combinadic}
 \end{equation}
 
-From number $N$ is more diffucult extract the combination. By the definition of the lexicographic ordering, two k-combinations that 
-differ in their largest element ck will be ordered according to the comparison of those largest elements, from which it follows that all
-combinations with a fixed value of their largest element are contiguous in the list. Moreover the smallest combination with ck as
+From number $N$ is more difficult extract the combination. By the definition of the lexicographic ordering, two k-combinations that 
+differ in their largest element $c_k$ will be ordered according to the comparison of those largest elements, from which it follows that all
+combinations with a fixed value of their largest element are contiguous in the list. Moreover the smallest combination with $c_k$ as
 the largest element is $\binom {c_{k}}{k}$, and it has $c_i = i - 1$ for all $i < k$ (for this combination all terms 
 in the expression except $\binom {c_{k}}{k}$ are zero). 
 
@@ -56,16 +57,58 @@ $\binom{c_i}{i}=0$, namely $c_i = i - 1$. Thus we have found the 5-combination \
 
 \subsection{Combinadic in GPU}
 
-Exploit Combinadic in GPU is pretty immediate. Each thread in GPU has an unique id value that goes from zero to the number of initialize thread minus one. 
-This id could be used to take a specific combination where each element correspond to an id of a specific resource. 
+Exploit Combinadic in GPU is pretty immediate. Each thread in GPU has an unique id value that goes from zero to the number of initialized threads minus one. 
+This id could be used to take a specific combination where each element from the set correspond to an id of a specific resource. 
 
 
 \section{Repetition}
 
 What explain until now is based on combination with no repetition but a resource can be instantiate more than once!
 
-In a sequential algorithm the max repetition constraint is implemented since the beginning in the code while here it is develop in the thread differently, with it's own implementation. In this case also the CPU algorithm follow the same method in order to have a best prototype of the best parallel one.
+In a sequential algorithm the max repetition constraint is implemented since the beginning in the code while here it is developed in thread differently. In this case also the CPU algorithm follow the same method in order to have a better prototype of the best parallel one.
 
-Like will be show in the next chapter, will be not possible to create all repetitions of combinations set inside a single thread on the GPU, errors will arise due to time. To avoid this problem single thread should handle also each single repetition. In this way much more simple thread are created. While in the previous version all the repetition that respect area constraint are analyze and the useless are not created, now all ones are take into consideration.
+Like will be show in the next chapter, it's not possible to create all repetitions of combinations set inside a single thread on the GPU, errors will arise due to time because GPU kernel can last for a limited period of time.
+To avoid this problem single thread should handle also each single repetition. 
+In this way much more simpler thread are created with combinations that could not respect the area limit or that not cover all the operations. 
+While in the previous version all the repetitions that respect area constraint are analysed and the useless are not created, now all ones are take into consideration.
 
 To not explode computation a max of repetition for each resources is set.
+
+\section{Combinadic and repetition}
+
+To have repetition for combination given from $\binom{n}{k}$ and having a max number of repetition $max_{repetition}$, the threads that 
+will be created are given by the formula \ref{tot_thred}.
+
+\begin{equation}
+    M = \binom{n}{k} * max_{repetition}^k
+    \label{tot_thred}
+\end{equation}
+
+The id thread can go from id zero to $M-1$ and it is then split in two according formula \ref{id_split_1} and \ref{id_split_2}.
+
+\begin{equation}
+    id_1 = d/k 
+    \label{id_split_1}
+\end{equation}
+
+\begin{equation}
+    id_2 = d\mod{k}
+    \label{id_split_2}
+\end{equation}
+
+From $id_1$ is extract the combination like show in section \ref{Combinadic}, while from $id_2$ the corresponding repetition.
+
+Given $id_2$ is possible calculate the corresponding repetition of a given resources $i$ according 
+the following formula \ref{repetition}.
+
+\begin{equation}
+    r_i = id_i\mod{k}
+    \label{repetition}
+\end{equation}
+
+With $i$ that goes from 0 to $k-1$ and with $id_0 = id_2$. Between iteration $id_i$ change according formula \ref{change_id}.
+
+\begin{equation}
+    id_{i+1} = id_i/k
+    \label{change_id}
+\end{equation}

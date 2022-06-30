@@ -1,3 +1,17 @@
 %%% Appendix A
-\chapter{Elaborate Result}
+\chapter{Elaborate Results}
 \label{appendix2}
+
+When run the bash script to automatize the workload, for each version, different log files
+are created. Inside them are present all the information about each single execution and main ones are:
+
+\begin{itemize}
+    \item DFG name,
+    \item Are constrain used,
+    \item Latency obtained.
+\end{itemize}
+
+Thorough the python script \emph{elaborate\_result.py}, all these data are elaborate to create different graphs.
+
+The bar graph is created starting from the DFG used and the area constrain applied. Then for each version is displayed the time 
+spend to conclude the execution and, when is present, also CPU executions are show. 

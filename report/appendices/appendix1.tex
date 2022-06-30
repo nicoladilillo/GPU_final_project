@@ -1,3 +1,29 @@
 %%% Appendix A
-\chapter{Convert DFG}
+\chapter{Convert DFG}\
 \label{appendix1}
+
+The extension \.dot it's a format file suitable for 
+representing DFG in a graphical way. For the purpose of
+this project this kind of format is not suitable and so     
+the following python script has been written to convert 
+representation in a more easy one. Start from the original file
+the script read all the node and than in the new file are written:
+
+\begin{itemize}
+    \item the number of node n;
+    \item n rows representing the pair name node and operation node.
+\end{itemize}
+
+Then also the edge are read and in the file are written:
+
+\begin{itemize}
+    \item the number of edge e;
+    \item e rows representing the pair starting node and arrival node.
+\end{itemize}
+
+The produced file is saved in \.txt format.
+
+In this way the reading in C language is much more easier and more faster and the DFG remain the same.
+
+To se the graphical representation of DFG the .dot file is needed while to work run the GPU scheduling 
+the conversion format is used.

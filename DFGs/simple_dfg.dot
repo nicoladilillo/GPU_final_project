@@ -1,0 +1,8 @@
+digraph simple_dot {
+    node [fontcolor=white,style=filled,color=blue2];
+     MUL_1 [label = MUL ];
+     MUL_2 [label = MUL ];
+     ADD_1 [label = ADD ];
+     MUL_1 -> ADD_1 [ name = 1 ];
+     MUL_2 -> ADD_1 [ name = 2 ];
+}
