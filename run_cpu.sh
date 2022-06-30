@@ -2,6 +2,7 @@ dot_file=(
     "arf.txt"
     "fir.txt"
     "ewf.txt"
+    "h2v2_smooth_downsample_dfg__6.txt"
 )
 
 area_limit=(
