@@ -55,13 +55,13 @@ __device__ int Choose(int n, int k)
 } // Choose()
 
 // diaplay combination with given index
-__global__ void combination(const int n, int r, const unsigned int tot_comb, const unsigned int start_comb, const unsigned int end_comb,
-                            int const shared_memory_size, int const shared_memory_size_offset, int const max_rep, int const factor,
+__global__ void combination(const int n, int r, const unsigned long tot_comb, const unsigned long start_comb, const unsigned long end_comb,
+                            int const shared_memory_size, int const shared_memory_size_offset, int const max_rep, long const factor,
                             const operation_GPU_t *Operation_init, const int operation_number, const node_GPU_t *node_init,
                             const int node_number, const int area_limit_app, const uint8_t resources_number, uint8_t *final_best_combination,
                             uint8_t *final_best_repetition, int *final_best_time, int *final_area_calculated, const int best_time, const int area_calculated)
 {
-    int idx = blockIdx.x * blockDim.x + threadIdx.x + start_comb;
+    const unsigned long idx = blockIdx.x * blockDim.x + threadIdx.x + start_comb;
 
     if (idx >= start_comb && idx < end_comb)
     {
@@ -69,7 +69,8 @@ __global__ void combination(const int n, int r, const unsigned int tot_comb, con
 
         extern __shared__ unsigned char s[];
 
-        int i, j, z;
+        unsigned long i;
+        int j, z;
 
         int k_comb = r;
         const int area_limit = area_limit_app;
@@ -792,8 +793,8 @@ int main(int argc, char const *argv[])
 
     // Invoke kernel
     unsigned int threadsPerBlock_d, block_d;
-    unsigned int end_comb = 0;
-    unsigned int start_comb = 0;
+    unsigned long end_comb = 0;
+    unsigned long start_comb = 0;
     unsigned int saved_block_d[max_stream_number];
     unsigned int saved_k[max_stream_number];
 
@@ -807,7 +808,7 @@ int main(int argc, char const *argv[])
     timeinfo_start = localtime(&rawtime_start);
 
     // how big are the cutset, modify it iteratively
-    // for(k = 11; k <= 11; k++)
+    //  for(k = 11; k <= 11; k++)
     for (k = operation_used; k <= resource_number; k++)
     {
         // calculate number of combinations
